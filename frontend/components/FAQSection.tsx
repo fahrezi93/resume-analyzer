@@ -105,12 +105,11 @@ export function FAQSection() {
           </p>
         </div>
 
-        {/* Modern Grid Layout */}
-        <div className="grid lg:grid-cols-2 gap-6 mb-12">
+        <div className="max-w-4xl mx-auto space-y-4 mb-12">
           {modernFaqs.map((faq, index) => (
             <div
               key={index}
-              className={`group relative p-6 rounded-2xl border transition-all duration-500 hover:scale-[1.02] cursor-pointer ${
+              className={`group relative p-6 rounded-2xl border transition-all duration-500 cursor-pointer ${
                 openIndex === index
                   ? isDarkMode 
                     ? 'bg-white/10 border-white/20 shadow-xl' 
@@ -121,13 +120,13 @@ export function FAQSection() {
               } backdrop-blur-xl`}
               onClick={() => toggleFAQ(index)}
             >
-              {/* Icon */}
-              <div className="flex items-start space-x-3 mb-3">
-                <div className={`p-2 rounded-xl bg-gradient-to-r ${faq.color} shadow-lg`}>
-                  <faq.icon className="w-5 h-5 text-white" />
-                </div>
-                <div className="flex-1">
-                  <h3 className={`text-lg font-display font-semibold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'} group-hover:text-violet-600 transition-colors duration-300`}>
+              {/* Question with Icon */}
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                  <div className={`p-2 rounded-xl bg-gradient-to-r ${faq.color} shadow-lg`}>
+                    <faq.icon className="w-5 h-5 text-white" />
+                  </div>
+                  <h3 className={`text-lg font-display font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'} group-hover:text-violet-600 transition-colors duration-300`}>
                     {faq.question}
                   </h3>
                 </div>

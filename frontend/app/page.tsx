@@ -187,34 +187,34 @@ export default function Home() {
           </button>
         </div>
 
-        <div className="max-w-6xl mx-auto px-6 py-20">
+        <div className="max-w-4xl mx-auto px-6 py-12">
           {/* Modern Header */}
-          <div className="text-center mb-16">
-            <div className={`inline-flex items-center px-4 py-2 rounded-full ${isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-violet-100 text-violet-700'} mb-6`}>
+          <div className="text-center mb-12">
+            <div className={`inline-flex items-center px-3 py-1.5 rounded-full ${isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-violet-100 text-violet-700'} mb-4`}>
               <Brain className="w-4 h-4 mr-2" />
               <span className="text-sm font-medium">AI-Powered Analysis</span>
             </div>
-            <h1 className={`text-4xl lg:text-6xl font-black mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+            <h1 className={`text-3xl md:text-4xl font-display font-black mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
               Upload & 
               <span className="block bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                 Analyze
               </span>
             </h1>
-            <p className={`text-xl ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-2xl mx-auto`}>
+            <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-2xl mx-auto`}>
               Drop your resume and get instant AI-powered insights to boost your career
             </p>
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-6">
             {/* Modern Upload Card */}
-            <div className={`relative p-8 rounded-3xl ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white/80 border border-white/30'} backdrop-blur-xl shadow-2xl hover-lift`}>
+            <div className={`relative p-6 rounded-2xl ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white/80 border border-white/30'} backdrop-blur-xl shadow-xl hover-lift`}>
               {/* Gradient Border Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 rounded-3xl opacity-20 blur-xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 rounded-2xl opacity-20 blur-lg"></div>
               
               <div className="relative">
                 <div
                   {...getRootProps()}
-                  className={`border-2 border-dashed rounded-2xl p-16 text-center cursor-pointer transition-all duration-500 group ${
+                  className={`border-2 border-dashed rounded-xl p-12 text-center cursor-pointer transition-all duration-500 group ${
                     isDragActive
                       ? 'border-purple-400 bg-purple-50/50 scale-105'
                       : isDarkMode 
@@ -226,26 +226,26 @@ export default function Home() {
                   
                   {isDragActive ? (
                     <div className="text-purple-600">
-                      <div className="relative mb-6">
-                        <div className="absolute inset-0 bg-purple-400 rounded-full blur-2xl opacity-30 animate-pulse"></div>
-                        <Upload className="relative mx-auto h-20 w-20 animate-bounce" />
+                      <div className="relative mb-4">
+                        <div className="absolute inset-0 bg-purple-400 rounded-full blur-xl opacity-30 animate-pulse"></div>
+                        <Upload className="relative mx-auto h-16 w-16 animate-bounce" />
                       </div>
-                      <p className="text-2xl font-bold">Drop it like it's hot! 🔥</p>
-                      <p className="text-purple-500 mt-2">Release to upload your resume</p>
+                      <p className="text-xl font-bold">Drop it like it's hot! 🔥</p>
+                      <p className="text-purple-500 mt-2 text-sm">Release to upload your resume</p>
                     </div>
                   ) : (
                     <div className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>
-                      <div className="relative mb-8">
-                        <div className="absolute inset-0 bg-gradient-to-r from-violet-400 to-purple-400 rounded-full blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
-                        <div className="relative p-6 bg-gradient-to-r from-violet-500 to-purple-500 rounded-3xl mx-auto w-fit">
-                          <Upload className="h-16 w-16 text-white group-hover:scale-110 transition-transform duration-300" />
+                      <div className="relative mb-6">
+                        <div className="absolute inset-0 bg-gradient-to-r from-violet-400 to-purple-400 rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
+                        <div className="relative p-4 bg-gradient-to-r from-violet-500 to-purple-500 rounded-2xl mx-auto w-fit">
+                          <Upload className="h-12 w-12 text-white group-hover:scale-110 transition-transform duration-300" />
                         </div>
                       </div>
                       
-                      <h3 className={`text-3xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                      <h3 className={`text-2xl font-display font-bold mb-3 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                         Drop your resume here
                       </h3>
-                      <p className={`text-lg mb-6 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+                      <p className={`text-base mb-4 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>
                         or click to browse files from your computer
                       </p>
                       
@@ -508,49 +508,49 @@ export default function Home() {
       </div>
 
       {/* Features Section - Bento Grid Style */}
-      <div className="py-32 px-6" id="features">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <div className={`inline-block px-4 py-2 rounded-full ${isDarkMode ? 'bg-purple-900/30 text-purple-300' : 'bg-violet-100 text-violet-700'} mb-6`}>
+      <div className="py-16 px-6" id="features">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <div className={`inline-block px-3 py-1.5 rounded-full ${isDarkMode ? 'bg-purple-900/30 text-purple-300' : 'bg-violet-100 text-violet-700'} mb-4`}>
               <span className="text-sm font-medium">Powerful Features</span>
             </div>
-            <h2 className={`text-5xl lg:text-6xl font-black mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+            <h2 className={`text-3xl md:text-4xl font-display font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
               Why Choose 
               <span className="block bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                 ResumeAI?
               </span>
             </h2>
-            <p className={`text-xl ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto`}>
+            <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-2xl mx-auto`}>
               Experience the future of resume optimization with our cutting-edge AI technology
             </p>
           </div>
 
           {/* Bento Grid Layout */}
-          <div className="grid md:grid-cols-6 lg:grid-cols-8 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-6 lg:grid-cols-8 gap-4 max-w-5xl mx-auto">
             {/* Large Feature Card */}
-            <div className={`md:col-span-3 lg:col-span-4 p-8 rounded-3xl ${isDarkMode ? 'bg-gradient-to-br from-purple-900/50 to-pink-900/50 border border-white/10' : 'bg-gradient-to-br from-violet-100 to-purple-100 border border-violet-200'} hover-lift hover-glow group`}>
-              <div className="flex items-start space-x-4 mb-6">
-                <div className="p-3 bg-gradient-to-r from-violet-500 to-purple-500 rounded-2xl">
-                  <Brain className="w-8 h-8 text-white" />
+            <div className={`md:col-span-3 lg:col-span-4 p-6 rounded-2xl ${isDarkMode ? 'bg-gradient-to-br from-purple-900/50 to-pink-900/50 border border-white/10' : 'bg-gradient-to-br from-violet-100 to-purple-100 border border-violet-200'} hover-lift hover-glow group`}>
+              <div className="flex items-start space-x-3 mb-4">
+                <div className="p-2 bg-gradient-to-r from-violet-500 to-purple-500 rounded-xl">
+                  <Brain className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className={`text-2xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                  <h3 className={`text-xl font-display font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                     AI-Powered Analysis
                   </h3>
-                  <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
+                  <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mb-3 text-sm`}>
                     Advanced natural language processing analyzes your resume with human-like understanding
                   </p>
                 </div>
               </div>
               
               {/* Interactive Demo */}
-              <div className={`p-4 rounded-2xl ${isDarkMode ? 'bg-white/5' : 'bg-white/70'} mb-4`}>
-                <div className="flex items-center space-x-2 mb-3">
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Analyzing...</span>
+              <div className={`p-3 rounded-xl ${isDarkMode ? 'bg-white/5' : 'bg-white/70'} mb-3`}>
+                <div className="flex items-center space-x-2 mb-2">
+                  <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
+                  <span className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Analyzing...</span>
                 </div>
-                <div className="space-y-2">
-                  <div className={`h-2 ${isDarkMode ? 'bg-white/10' : 'bg-gray-200'} rounded-full overflow-hidden`}>
+                <div className="space-y-1.5">
+                  <div className={`h-1.5 ${isDarkMode ? 'bg-white/10' : 'bg-gray-200'} rounded-full overflow-hidden`}>
                     <div className="h-full bg-gradient-to-r from-violet-500 to-purple-500 rounded-full animate-pulse" style={{width: '85%'}}></div>
                   </div>
                   <div className="flex justify-between text-xs">
@@ -562,38 +562,38 @@ export default function Home() {
             </div>
 
             {/* Medium Feature Cards */}
-            <div className={`md:col-span-3 lg:col-span-2 p-6 rounded-3xl ${isDarkMode ? 'bg-gradient-to-br from-orange-900/30 to-red-900/30 border border-orange-500/20' : 'bg-gradient-to-br from-orange-100 to-red-100 border border-orange-200'} hover-lift group`}>
-              <div className="p-3 bg-gradient-to-r from-orange-400 to-red-400 rounded-2xl w-fit mb-4">
-                <Target className="w-6 h-6 text-white" />
+            <div className={`md:col-span-3 lg:col-span-2 p-4 rounded-2xl ${isDarkMode ? 'bg-gradient-to-br from-orange-900/30 to-red-900/30 border border-orange-500/20' : 'bg-gradient-to-br from-orange-100 to-red-100 border border-orange-200'} hover-lift group`}>
+              <div className="p-2 bg-gradient-to-r from-orange-400 to-red-400 rounded-xl w-fit mb-3">
+                <Target className="w-5 h-5 text-white" />
               </div>
-              <h3 className={`text-xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+              <h3 className={`text-lg font-display font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                 Smart Keywords
               </h3>
-              <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
+              <p className={`text-xs ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mb-3`}>
                 Identify missing keywords to boost ATS compatibility
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1">
                 {['React', 'Python', 'AI/ML'].map((skill) => (
-                  <span key={skill} className={`text-xs px-2 py-1 rounded-full ${isDarkMode ? 'bg-orange-500/20 text-orange-300' : 'bg-orange-200 text-orange-700'}`}>
+                  <span key={skill} className={`text-xs px-2 py-0.5 rounded-full ${isDarkMode ? 'bg-orange-500/20 text-orange-300' : 'bg-orange-200 text-orange-700'}`}>
                     {skill}
                   </span>
                 ))}
               </div>
             </div>
 
-            <div className={`md:col-span-3 lg:col-span-2 p-6 rounded-3xl ${isDarkMode ? 'bg-gradient-to-br from-green-900/30 to-teal-900/30 border border-green-500/20' : 'bg-gradient-to-br from-green-100 to-teal-100 border border-green-200'} hover-lift group`}>
-              <div className="p-3 bg-gradient-to-r from-green-400 to-teal-400 rounded-2xl w-fit mb-4">
-                <TrendingUp className="w-6 h-6 text-white" />
+            <div className={`md:col-span-3 lg:col-span-2 p-4 rounded-2xl ${isDarkMode ? 'bg-gradient-to-br from-green-900/30 to-teal-900/30 border border-green-500/20' : 'bg-gradient-to-br from-green-100 to-teal-100 border border-green-200'} hover-lift group`}>
+              <div className="p-2 bg-gradient-to-r from-green-400 to-teal-400 rounded-xl w-fit mb-3">
+                <TrendingUp className="w-5 h-5 text-white" />
               </div>
-              <h3 className={`text-xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+              <h3 className={`text-lg font-display font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                 Score Insights
               </h3>
-              <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
+              <p className={`text-xs ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mb-3`}>
                 Get detailed scoring and improvement suggestions
               </p>
               <div className="flex items-center space-x-2">
-                <div className={`text-3xl font-bold ${isDarkMode ? 'text-green-400' : 'text-green-600'}`}>92</div>
-                <div className="text-sm">
+                <div className={`text-2xl font-bold ${isDarkMode ? 'text-green-400' : 'text-green-600'}`}>92</div>
+                <div className="text-xs">
                   <div className={isDarkMode ? 'text-green-400' : 'text-green-600'}>Excellent</div>
                   <div className={`${isDarkMode ? 'text-gray-400' : 'text-gray-500'} text-xs`}>+15 from last</div>
                 </div>
@@ -601,42 +601,42 @@ export default function Home() {
             </div>
 
             {/* Bottom Row */}
-            <div className={`md:col-span-2 lg:col-span-2 p-6 rounded-3xl ${isDarkMode ? 'bg-gradient-to-br from-blue-900/30 to-cyan-900/30 border border-blue-500/20' : 'bg-gradient-to-br from-blue-100 to-cyan-100 border border-blue-200'} hover-lift group`}>
-              <div className="p-3 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-2xl w-fit mb-4">
-                <Shield className="w-6 h-6 text-white" />
+            <div className={`md:col-span-2 lg:col-span-2 p-4 rounded-2xl ${isDarkMode ? 'bg-gradient-to-br from-blue-900/30 to-cyan-900/30 border border-blue-500/20' : 'bg-gradient-to-br from-blue-100 to-cyan-100 border border-blue-200'} hover-lift group`}>
+              <div className="p-2 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-xl w-fit mb-3">
+                <Shield className="w-5 h-5 text-white" />
               </div>
-              <h3 className={`text-lg font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+              <h3 className={`text-base font-display font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                 Secure & Private
               </h3>
-              <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+              <p className={`text-xs ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                 Your data stays safe with enterprise-grade security
               </p>
             </div>
 
-            <div className={`md:col-span-2 lg:col-span-3 p-6 rounded-3xl ${isDarkMode ? 'bg-gradient-to-br from-pink-900/30 to-rose-900/30 border border-pink-500/20' : 'bg-gradient-to-br from-pink-100 to-rose-100 border border-pink-200'} hover-lift group`}>
-              <div className="p-3 bg-gradient-to-r from-pink-400 to-rose-400 rounded-2xl w-fit mb-4">
-                <Zap className="w-6 h-6 text-white" />
+            <div className={`md:col-span-2 lg:col-span-3 p-4 rounded-2xl ${isDarkMode ? 'bg-gradient-to-br from-pink-900/30 to-rose-900/30 border border-pink-500/20' : 'bg-gradient-to-br from-pink-100 to-rose-100 border border-pink-200'} hover-lift group`}>
+              <div className="p-2 bg-gradient-to-r from-pink-400 to-rose-400 rounded-xl w-fit mb-3">
+                <Zap className="w-5 h-5 text-white" />
               </div>
-              <h3 className={`text-lg font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+              <h3 className={`text-base font-display font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                 Lightning Fast
               </h3>
-              <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
+              <p className={`text-xs ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mb-3`}>
                 Get comprehensive analysis in under 30 seconds
               </p>
               <div className="flex items-center space-x-2">
-                <div className={`w-8 h-1 ${isDarkMode ? 'bg-white/10' : 'bg-gray-200'} rounded-full overflow-hidden`}>
+                <div className={`w-6 h-0.5 ${isDarkMode ? 'bg-white/10' : 'bg-gray-200'} rounded-full overflow-hidden`}>
                   <div className="w-full h-full bg-gradient-to-r from-pink-400 to-rose-400 rounded-full animate-pulse"></div>
                 </div>
                 <span className={`text-xs ${isDarkMode ? 'text-pink-400' : 'text-pink-600'}`}>Processing...</span>
               </div>
             </div>
 
-            <div className={`md:col-span-2 lg:col-span-1 p-6 rounded-3xl ${isDarkMode ? 'bg-gradient-to-br from-yellow-900/30 to-orange-900/30 border border-yellow-500/20' : 'bg-gradient-to-br from-yellow-100 to-orange-100 border border-yellow-200'} hover-lift group flex flex-col items-center justify-center text-center`}>
-              <div className="p-3 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-2xl mb-4">
-                <Star className="w-6 h-6 text-white" />
+            <div className={`md:col-span-2 lg:col-span-1 p-4 rounded-2xl ${isDarkMode ? 'bg-gradient-to-br from-yellow-900/30 to-orange-900/30 border border-yellow-500/20' : 'bg-gradient-to-br from-yellow-100 to-orange-100 border border-yellow-200'} hover-lift group flex flex-col items-center justify-center text-center`}>
+              <div className="p-2 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-xl mb-3">
+                <Star className="w-5 h-5 text-white" />
               </div>
-              <div className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-1`}>4.9</div>
-              <div className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>Rating</div>
+              <div className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-1`}>4.9</div>
+              <div className={`text-xs ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>Rating</div>
             </div>
           </div>
         </div>
