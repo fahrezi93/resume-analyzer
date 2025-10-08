@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useDropzone } from 'react-dropzone'
 import axios from 'axios'
+import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { AnalysisReport } from '@/components/AnalysisReport'
@@ -365,9 +366,9 @@ export default function Home() {
           </div>
           
           <div className="hidden md:flex items-center space-x-6">
-            <a href="#features" className={`text-sm font-medium ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>Features</a>
-            <a href="#pricing" className={`text-sm font-medium ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>Pricing</a>
-            <a href="#about" className={`text-sm font-medium ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>About</a>
+            <Link href="/features" className={`text-sm font-medium ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>Fitur</Link>
+            <Link href="/pricing" className={`text-sm font-medium ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>Harga</Link>
+            <Link href="/about" className={`text-sm font-medium ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>Tentang</Link>
           </div>
 
           <button 
@@ -824,13 +825,21 @@ export default function Home() {
             <div>
               <h4 className="text-white font-bold text-lg mb-6">Produk</h4>
               <ul className="space-y-3">
-                {['Fitur', 'Harga', 'API', 'Enterprise'].map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
-                      {link}
-                    </a>
-                  </li>
-                ))}
+                <li>
+                  <Link href="/features" className="text-gray-400 hover:text-white transition-colors duration-300">
+                    Fitur
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/pricing" className="text-gray-400 hover:text-white transition-colors duration-300">
+                    Harga
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/about" className="text-gray-400 hover:text-white transition-colors duration-300">
+                    Tentang
+                  </Link>
+                </li>
               </ul>
             </div>
 
@@ -838,13 +847,16 @@ export default function Home() {
             <div>
               <h4 className="text-white font-bold text-lg mb-6">Dukungan</h4>
               <ul className="space-y-3">
-                {['Pusat Bantuan', 'Kontak', 'Privasi', 'Syarat'].map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
-                      {link}
-                    </a>
-                  </li>
-                ))}
+                <li>
+                  <a href="#faq" className="text-gray-400 hover:text-white transition-colors duration-300">
+                    FAQ
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:hello@resumeai.com" className="text-gray-400 hover:text-white transition-colors duration-300">
+                    Kontak
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
