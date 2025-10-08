@@ -387,19 +387,19 @@ export default function Home() {
             <div className="lg:col-span-7">
               <div className={`inline-flex items-center px-4 py-2 rounded-full ${isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-violet-100 text-violet-700'} mb-6`}>
                 <Sparkles className="w-4 h-4 mr-2" />
-                <span className="text-sm font-medium">Powered by Advanced AI</span>
+                <span className="text-sm font-medium">Didukung AI Canggih</span>
               </div>
 
             <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                Resume
+                Revolusi
                 <span className="block bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                  Revolution
+                  Resume
                 </span>
             </h1>
 
             <p className={`text-lg lg:text-xl leading-relaxed mb-6 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-xl`}>
-              Transform your career with AI-powered resume analysis that goes beyond ordinary. 
-              <span className="font-semibold bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent"> Discover your potential.</span>
+              Transformasikan karir Anda dengan analisis resume bertenaga AI yang melampaui biasa. 
+              <span className="font-semibold bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent"> Temukan potensi Anda.</span>
             </p>              <div className="flex flex-col sm:flex-row gap-4 mb-12">
                 <button 
                   onClick={() => setShowAnalyzer(true)}
@@ -408,23 +408,23 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="relative flex items-center">
                     <Rocket className="w-5 h-5 mr-2" />
-                    Start Analysis
+                    Mulai Analisis
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                   </div>
                 </button>
 
                 <button className={`px-8 py-4 rounded-2xl font-semibold text-lg border-2 ${isDarkMode ? 'border-white/20 text-white hover:bg-white/10' : 'border-gray-300 text-gray-700 hover:bg-gray-50'} transition-all duration-300`}>
                   <Play className="w-5 h-5 mr-2 inline" />
-                  Watch Demo
+                  Lihat Demo
                 </button>
               </div>
 
               {/* Live Stats */}
               <div className="grid grid-cols-3 gap-6">
                 {[
-                  { number: "50K+", label: "Resumes Analyzed", icon: FileText },
-                  { number: "98%", label: "Success Rate", icon: Award },
-                  { number: "24/7", label: "AI Support", icon: Globe }
+                  { number: "50K+", label: "Resume Dianalisis", icon: FileText },
+                  { number: "98%", label: "Tingkat Berhasil", icon: Award },
+                  { number: "24/7", label: "Dukungan AI", icon: Globe }
                 ].map((stat, index) => (
                   <div key={index} className={`p-4 rounded-2xl ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white/70 border border-white/50'} backdrop-blur-sm`}>
                     <stat.icon className={`w-6 h-6 mb-2 ${isDarkMode ? 'text-violet-400' : 'text-violet-600'}`} />
@@ -459,14 +459,14 @@ export default function Home() {
                         <Upload className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h3 className={`font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Smart Upload</h3>
-                        <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Drag, drop, analyze</p>
+                        <h3 className={`font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Upload Pintar</h3>
+                        <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Seret, jatuh, analisis</p>
                       </div>
                     </div>
 
                     {/* Progress Indicators */}
                     <div className="space-y-3">
-                      {['Content Analysis', 'Keyword Matching', 'Score Generation'].map((step, index) => (
+                      {['Analisis Konten', 'Pencocokan Kata Kunci', 'Pembuatan Skor'].map((step, index) => (
                         <div key={index} className="flex items-center space-x-3">
                           <div className={`w-6 h-6 rounded-full flex items-center justify-center ${index <= currentStep ? 'bg-green-500' : isDarkMode ? 'bg-white/10' : 'bg-gray-200'}`}>
                             {index <= currentStep ? <CheckCircle className="w-4 h-4 text-white" /> : <div className="w-2 h-2 bg-gray-400 rounded-full"></div>}
@@ -480,7 +480,7 @@ export default function Home() {
                     <div className={`p-4 rounded-xl ${isDarkMode ? 'bg-white/5' : 'bg-gray-50'}`}>
                       <div className="flex items-center space-x-2 mb-2">
                         <Eye className={`w-4 h-4 ${isDarkMode ? 'text-violet-400' : 'text-violet-600'}`} />
-                        <span className={`text-xs font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>Live Preview</span>
+                        <span className={`text-xs font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>Pratinjau Langsung</span>
                       </div>
                       <div className="h-20 bg-gradient-to-r from-violet-100 to-purple-100 rounded-lg flex items-center justify-center">
                         <div className="text-center">
@@ -495,7 +495,7 @@ export default function Home() {
                 {/* Floating Cards */}
                 <div className="absolute -bottom-6 -left-6 p-4 bg-gradient-to-r from-orange-400 to-pink-400 rounded-2xl shadow-lg transform rotate-12 hover:rotate-6 transition-transform duration-300">
                   <Users className="w-6 h-6 text-white mb-2" />
-                  <div className="text-white text-sm font-medium">10M+ Users</div>
+                  <div className="text-white text-sm font-medium">10M+ Pengguna</div>
                 </div>
 
                 <div className="absolute -top-6 -left-8 p-3 bg-gradient-to-r from-green-400 to-blue-400 rounded-xl shadow-lg transform -rotate-12 hover:-rotate-6 transition-transform duration-300">
@@ -512,16 +512,16 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <div className={`inline-block px-3 py-1.5 rounded-full ${isDarkMode ? 'bg-purple-900/30 text-purple-300' : 'bg-violet-100 text-violet-700'} mb-4`}>
-              <span className="text-sm font-medium">Powerful Features</span>
+              <span className="text-sm font-medium">Fitur Canggih</span>
             </div>
             <h2 className={`text-3xl md:text-4xl font-display font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-              Why Choose 
+              Mengapa Pilih 
               <span className="block bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                 ResumeAI?
               </span>
             </h2>
             <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-2xl mx-auto`}>
-              Experience the future of resume optimization with our cutting-edge AI technology
+              Rasakan masa depan optimisasi resume dengan teknologi AI terdepan kami
             </p>
           </div>
 
@@ -535,10 +535,10 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className={`text-xl font-display font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                    AI-Powered Analysis
+                    Analisis Bertenaga AI
                   </h3>
                   <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mb-3 text-sm`}>
-                    Advanced natural language processing analyzes your resume with human-like understanding
+                    Pemrosesan bahasa alami canggih menganalisis resume Anda dengan pemahaman seperti manusia
                   </p>
                 </div>
               </div>
@@ -554,7 +554,7 @@ export default function Home() {
                     <div className="h-full bg-gradient-to-r from-violet-500 to-purple-500 rounded-full animate-pulse" style={{width: '85%'}}></div>
                   </div>
                   <div className="flex justify-between text-xs">
-                    <span className={isDarkMode ? 'text-gray-400' : 'text-gray-500'}>Skills Match</span>
+                    <span className={isDarkMode ? 'text-gray-400' : 'text-gray-500'}>Kecocokan Skill</span>
                     <span className={isDarkMode ? 'text-green-400' : 'text-green-600'}>85%</span>
                   </div>
                 </div>
@@ -567,10 +567,10 @@ export default function Home() {
                 <Target className="w-5 h-5 text-white" />
               </div>
               <h3 className={`text-lg font-display font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                Smart Keywords
+                Kata Kunci Pintar
               </h3>
               <p className={`text-xs ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mb-3`}>
-                Identify missing keywords to boost ATS compatibility
+                Identifikasi kata kunci yang hilang untuk meningkatkan kompatibilitas ATS
               </p>
               <div className="flex flex-wrap gap-1">
                 {['React', 'Python', 'AI/ML'].map((skill) => (
@@ -586,16 +586,16 @@ export default function Home() {
                 <TrendingUp className="w-5 h-5 text-white" />
               </div>
               <h3 className={`text-lg font-display font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                Score Insights
+                Wawasan Skor
               </h3>
               <p className={`text-xs ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mb-3`}>
-                Get detailed scoring and improvement suggestions
+                Dapatkan penilaian detail dan saran perbaikan
               </p>
               <div className="flex items-center space-x-2">
                 <div className={`text-2xl font-bold ${isDarkMode ? 'text-green-400' : 'text-green-600'}`}>92</div>
                 <div className="text-xs">
-                  <div className={isDarkMode ? 'text-green-400' : 'text-green-600'}>Excellent</div>
-                  <div className={`${isDarkMode ? 'text-gray-400' : 'text-gray-500'} text-xs`}>+15 from last</div>
+                  <div className={isDarkMode ? 'text-green-400' : 'text-green-600'}>Sangat Baik</div>
+                  <div className={`${isDarkMode ? 'text-gray-400' : 'text-gray-500'} text-xs`}>+15 dari terakhir</div>
                 </div>
               </div>
             </div>
@@ -606,10 +606,10 @@ export default function Home() {
                 <Shield className="w-5 h-5 text-white" />
               </div>
               <h3 className={`text-base font-display font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                Secure & Private
+                Aman & Privat
               </h3>
               <p className={`text-xs ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                Your data stays safe with enterprise-grade security
+                Data Anda tetap aman dengan keamanan tingkat enterprise
               </p>
             </div>
 
@@ -618,16 +618,16 @@ export default function Home() {
                 <Zap className="w-5 h-5 text-white" />
               </div>
               <h3 className={`text-base font-display font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                Lightning Fast
+                Secepat Kilat
               </h3>
               <p className={`text-xs ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mb-3`}>
-                Get comprehensive analysis in under 30 seconds
+                Dapatkan analisis komprehensif dalam waktu kurang dari 30 detik
               </p>
               <div className="flex items-center space-x-2">
                 <div className={`w-6 h-0.5 ${isDarkMode ? 'bg-white/10' : 'bg-gray-200'} rounded-full overflow-hidden`}>
                   <div className="w-full h-full bg-gradient-to-r from-pink-400 to-rose-400 rounded-full animate-pulse"></div>
                 </div>
-                <span className={`text-xs ${isDarkMode ? 'text-pink-400' : 'text-pink-600'}`}>Processing...</span>
+                <span className={`text-xs ${isDarkMode ? 'text-pink-400' : 'text-pink-600'}`}>Memproses...</span>
               </div>
             </div>
 
@@ -636,20 +636,32 @@ export default function Home() {
                 <Star className="w-5 h-5 text-white" />
               </div>
               <div className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-1`}>4.9</div>
-              <div className={`text-xs ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>Rating</div>
+              <div className={`text-xs ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>Penilaian</div>
             </div>
           </div>
         </div>
       </div>
 
       {/* How It Works */}
-      <div className="py-16 bg-gradient-to-br from-violet-50/50 to-pink-50/50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="py-0 px-6 relative overflow-hidden">
+        {/* Background decorations */}
+        <div className="absolute inset-0 opacity-30">
+          <div className={`absolute top-20 left-10 w-32 h-32 ${isDarkMode ? 'bg-purple-500/20' : 'bg-violet-200/40'} rounded-full blur-3xl animate-float`}></div>
+          <div className={`absolute bottom-20 right-10 w-40 h-40 ${isDarkMode ? 'bg-pink-500/20' : 'bg-pink-200/40'} rounded-full blur-3xl animate-float`} style={{animationDelay: '2s'}}></div>
+        </div>
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative py-16">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-display font-bold bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
-              Cara Kerja Resume Analyzer
+            <div className={`inline-block px-3 py-1.5 rounded-full ${isDarkMode ? 'bg-purple-900/30 text-purple-300' : 'bg-violet-100 text-violet-700'} mb-4`}>
+              <span className="text-sm font-medium">Proses Sederhana</span>
+            </div>
+            <h2 className={`text-3xl md:text-4xl font-display font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+              Cara Kerja 
+              <span className="block bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                Resume Analyzer
+              </span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-2xl mx-auto`}>
               Tiga langkah sederhana untuk CV yang lebih baik
             </p>
           </div>
@@ -679,22 +691,20 @@ export default function Home() {
               }
             ].map((item, index) => (
               <div key={index} className="relative">
-                <Card className="text-center hover:shadow-xl transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm h-full">
-                  <CardContent className="p-6">
-                    <div className="text-4xl font-bold text-gray-100 mb-3">
-                      {item.step}
-                    </div>
-                    <div className={`inline-flex items-center justify-center w-14 h-14 bg-gradient-to-r ${item.gradient} rounded-2xl mb-5 -mt-6`}>
-                      <item.icon className="h-7 w-7 text-white" />
-                    </div>
-                    <h3 className="text-lg font-display font-semibold text-gray-900 mb-3">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed text-sm">
-                      {item.description}
-                    </p>
-                  </CardContent>
-                </Card>
+                <div className={`text-center hover:shadow-xl transition-all duration-300 border-0 ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white/80 border border-white/30'} backdrop-blur-xl rounded-2xl h-full p-6 hover-lift`}>
+                  <div className={`text-4xl font-bold ${isDarkMode ? 'text-white/20' : 'text-gray-100'} mb-3`}>
+                    {item.step}
+                  </div>
+                  <div className={`inline-flex items-center justify-center w-14 h-14 bg-gradient-to-r ${item.gradient} rounded-2xl mb-5 -mt-6 shadow-lg`}>
+                    <item.icon className="h-7 w-7 text-white" />
+                  </div>
+                  <h3 className={`text-lg font-display font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-3`}>
+                    {item.title}
+                  </h3>
+                  <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} leading-relaxed text-sm`}>
+                    {item.description}
+                  </p>
+                </div>
                 
                 {index < 2 && (
                   <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
@@ -708,10 +718,10 @@ export default function Home() {
       </div>
 
       {/* Testimonials Section */}
-      <TestimonialsSection />
+      <TestimonialsSection isDarkMode={isDarkMode} />
 
       {/* FAQ Section */}
-      <FAQSection />
+      <FAQSection isDarkMode={isDarkMode} />
 
       {/* Modern CTA Section */}
       <div className="relative py-20 px-6 overflow-hidden">
@@ -729,18 +739,18 @@ export default function Home() {
         <div className="relative max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-6">
             <Rocket className="w-4 h-4 mr-2 text-white" />
-            <span className="text-white font-medium text-sm">Ready to Transform Your Career?</span>
+            <span className="text-white font-medium text-sm">Siap Mentransformasi Karir Anda?</span>
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6 leading-tight">
-            Your Dream Job
+            Pekerjaan Impian Anda
             <span className="block bg-gradient-to-r from-yellow-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
-              Awaits You
+              Menanti Anda
             </span>
           </h2>
 
           <p className="text-lg lg:text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Join over 50,000 professionals who've already transformed their careers with our AI-powered resume analysis
+            Bergabunglah dengan lebih dari 50.000 profesional yang telah mentransformasi karir mereka dengan analisis resume bertenaga AI kami
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
@@ -751,24 +761,24 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-pink-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="relative flex items-center group-hover:text-white transition-colors duration-300">
                 <Zap className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
-                Start Free Analysis
+                Mulai Analisis Gratis
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
               </div>
             </button>
 
             <button className="flex items-center px-6 py-4 border-2 border-white/30 text-white rounded-xl font-display font-semibold text-lg hover:bg-white/10 transition-all duration-300">
               <Download className="mr-2 h-4 w-4" />
-              Download Sample
+              Unduh Contoh
             </button>
           </div>
 
           {/* Social Proof */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { number: "50K+", label: "Users Worldwide" },
-              { number: "98%", label: "Success Rate" },
-              { number: "4.9★", label: "User Rating" },
-              { number: "24/7", label: "AI Support" }
+              { number: "50K+", label: "Pengguna di Seluruh Dunia" },
+              { number: "98%", label: "Tingkat Keberhasilan" },
+              { number: "4.9★", label: "Rating Pengguna" },
+              { number: "24/7", label: "Dukungan AI" }
             ].map((stat, index) => (
               <div key={index} className="p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20">
                 <div className="text-3xl lg:text-4xl font-black text-white mb-2">
@@ -795,11 +805,11 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-white">ResumeAI</h3>
-                  <p className="text-gray-400 text-sm">Powered by Advanced AI</p>
+                  <p className="text-gray-400 text-sm">Didukung AI Canggih</p>
                 </div>
               </div>
               <p className="text-gray-400 text-lg leading-relaxed mb-6">
-                Transform your career journey with AI-powered resume analysis. Get personalized insights and land your dream job faster.
+                Transformasikan perjalanan karir Anda dengan analisis resume bertenaga AI. Dapatkan wawasan personal dan raih pekerjaan impian lebih cepat.
               </p>
               <div className="flex space-x-4">
                 {[Globe, Users, Award].map((Icon, index) => (
@@ -812,9 +822,9 @@ export default function Home() {
 
             {/* Quick Links */}
             <div>
-              <h4 className="text-white font-bold text-lg mb-6">Product</h4>
+              <h4 className="text-white font-bold text-lg mb-6">Produk</h4>
               <ul className="space-y-3">
-                {['Features', 'Pricing', 'API', 'Enterprise'].map((link) => (
+                {['Fitur', 'Harga', 'API', 'Enterprise'].map((link) => (
                   <li key={link}>
                     <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
                       {link}
@@ -826,9 +836,9 @@ export default function Home() {
 
             {/* Support */}
             <div>
-              <h4 className="text-white font-bold text-lg mb-6">Support</h4>
+              <h4 className="text-white font-bold text-lg mb-6">Dukungan</h4>
               <ul className="space-y-3">
-                {['Help Center', 'Contact', 'Privacy', 'Terms'].map((link) => (
+                {['Pusat Bantuan', 'Kontak', 'Privasi', 'Syarat'].map((link) => (
                   <li key={link}>
                     <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
                       {link}
@@ -842,12 +852,12 @@ export default function Home() {
           {/* Bottom Bar */}
           <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-800">
             <div className="text-gray-400 mb-4 md:mb-0">
-              © 2024 ResumeAI. All rights reserved. Built with ❤️ and AI.
+              © 2024 ResumeAI. Semua hak dilindungi. Dibuat dengan ❤️ dan AI.
             </div>
             <div className="flex items-center space-x-6">
               <div className="flex items-center space-x-2 text-gray-400">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-sm">All systems operational</span>
+                <span className="text-sm">Semua sistem beroperasi</span>
               </div>
             </div>
           </div>

@@ -41,67 +41,77 @@ interface FAQItemWithIcon extends FAQItem {
 
 const modernFaqs: FAQItemWithIcon[] = [
   {
-    question: "Is my resume data secure?",
-    answer: "Absolutely! Your data security is our top priority. All resumes are processed locally and never stored on our servers. Analysis happens in real-time, and your data is immediately deleted after processing.",
+    question: "Apakah data resume saya aman?",
+    answer: "Tentu saja! Keamanan data Anda adalah prioritas utama kami. Semua resume diproses secara lokal dan tidak pernah disimpan di server kami. Analisis terjadi secara real-time, dan data Anda langsung dihapus setelah pemrosesan.",
     icon: Shield,
     color: "from-green-500 to-emerald-500"
   },
   {
-    question: "What file formats are supported?",
-    answer: "We currently support PDF and DOCX formats. Make sure your resume is in one of these formats for optimal analysis results. More formats coming soon!",
+    question: "Format file apa yang didukung?",
+    answer: "Saat ini kami mendukung format PDF dan DOCX. Pastikan resume Anda dalam salah satu format ini untuk hasil analisis yang optimal. Format lainnya akan segera hadir!",
     icon: Globe,
     color: "from-blue-500 to-cyan-500"
   },
   {
-    question: "How long does the analysis take?",
-    answer: "Our AI analysis typically completes in under 30 seconds. Processing time may vary based on file size and content complexity, but we guarantee lightning-fast results.",
+    question: "Berapa lama waktu analisis?",
+    answer: "Analisis AI kami biasanya selesai dalam waktu kurang dari 30 detik. Waktu pemrosesan dapat bervariasi berdasarkan ukuran file dan kompleksitas konten, tetapi kami menjamin hasil yang sangat cepat.",
     icon: Clock,
     color: "from-orange-500 to-red-500"
   },
   {
-    question: "Is this service free?",
-    answer: "Yes! ResumeAI is currently free for all users. We're committed to helping job seekers improve their career prospects without any cost barriers.",
+    question: "Apakah layanan ini gratis?",
+    answer: "Ya! ResumeAI saat ini gratis untuk semua pengguna. Kami berkomitmen membantu pencari kerja meningkatkan prospek karir mereka tanpa hambatan biaya.",
     icon: Sparkles,
     color: "from-purple-500 to-pink-500"
   },
   {
-    question: "How accurate is the AI analysis?",
-    answer: "Our AI system uses cutting-edge NLP technology with over 95% accuracy rate. However, we recommend using the analysis as a guide alongside your professional judgment.",
+    question: "Seberapa akurat analisis AI?",
+    answer: "Sistem AI kami menggunakan teknologi NLP terdepan dengan tingkat akurasi lebih dari 95%. Namun, kami merekomendasikan menggunakan analisis sebagai panduan bersama dengan penilaian profesional Anda.",
     icon: Zap,
     color: "from-yellow-500 to-orange-500"
   },
   {
-    question: "Can I analyze resumes in other languages?",
-    answer: "Currently optimized for English and Indonesian resumes. We're actively developing support for additional languages based on user demand.",
+    question: "Bisakah saya menganalisis resume dalam bahasa lain?",
+    answer: "Saat ini dioptimalkan untuk resume bahasa Indonesia dan Inggris. Kami sedang aktif mengembangkan dukungan untuk bahasa tambahan berdasarkan permintaan pengguna.",
     icon: Users,
     color: "from-indigo-500 to-purple-500"
   }
 ]
 
-export function FAQSection() {
+interface FAQSectionProps {
+  isDarkMode?: boolean
+}
+
+export function FAQSection({ isDarkMode = false }: FAQSectionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
-  const [isDarkMode, setIsDarkMode] = useState(false)
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index)
   }
 
   return (
-    <div className={`py-16 px-6 ${isDarkMode ? 'bg-slate-900' : 'bg-gray-50/50'}`} id="faq">
-      <div className="max-w-5xl mx-auto">
+    <div className="py-0 px-6 relative overflow-hidden" id="faq">
+      {/* Background decorations */}
+      <div className="absolute inset-0 opacity-40">
+        <div className={`absolute top-16 right-20 w-28 h-28 ${isDarkMode ? 'bg-purple-500/20' : 'bg-violet-200/50'} rounded-full blur-3xl animate-float`}></div>
+        <div className={`absolute bottom-20 left-16 w-36 h-36 ${isDarkMode ? 'bg-pink-500/20' : 'bg-pink-200/50'} rounded-full blur-3xl animate-float`} style={{animationDelay: '4s'}}></div>
+        <div className={`absolute top-1/3 left-1/3 w-20 h-20 ${isDarkMode ? 'bg-orange-500/15' : 'bg-orange-200/40'} rounded-full blur-2xl animate-float`} style={{animationDelay: '6s'}}></div>
+      </div>
+
+      <div className="max-w-5xl mx-auto relative py-16">
         {/* Header */}
         <div className="text-center mb-12">
           <div className={`inline-block px-3 py-1.5 rounded-full ${isDarkMode ? 'bg-purple-900/30 text-purple-300' : 'bg-violet-100 text-violet-700'} mb-4`}>
-            <span className="text-sm font-medium">Got Questions?</span>
+            <span className="text-sm font-medium">Ada Pertanyaan?</span>
           </div>
           <h2 className={`text-3xl md:text-4xl font-display font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-            Frequently Asked
+            Pertanyaan yang Sering
             <span className="block bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-              Questions
+              Diajukan
             </span>
           </h2>
           <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-2xl mx-auto`}>
-            Everything you need to know about ResumeAI and how it works
+            Semua yang perlu Anda ketahui tentang ResumeAI dan cara kerjanya
           </p>
         </div>
 
@@ -158,17 +168,17 @@ export function FAQSection() {
         <div className={`text-center p-8 rounded-2xl ${isDarkMode ? 'bg-gradient-to-r from-purple-900/50 to-pink-900/50 border border-white/10' : 'bg-gradient-to-r from-violet-100 to-purple-100 border border-violet-200'} backdrop-blur-xl`}>
           <div className="max-w-xl mx-auto">
             <h3 className={`text-2xl font-display font-bold mb-3 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-              Still have questions?
+              Masih ada pertanyaan?
             </h3>
             <p className={`text-base mb-6 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-              Our support team is here to help you 24/7. Get in touch with us anytime!
+              Tim dukungan kami siap membantu Anda 24/7. Hubungi kami kapan saja!
             </p>
             
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <button className="group px-6 py-3 bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-xl font-display font-semibold text-base hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
                 <div className="flex items-center">
                   <HelpCircle className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
-                  Contact Support
+                  Hubungi Dukungan
                 </div>
               </button>
               
@@ -177,7 +187,7 @@ export function FAQSection() {
                   ? 'border-white/20 text-white hover:bg-white/10' 
                   : 'border-gray-300 text-gray-700 hover:bg-gray-50'
               }`}>
-                View Documentation
+                Lihat Dokumentasi
               </button>
             </div>
           </div>
