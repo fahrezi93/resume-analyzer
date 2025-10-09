@@ -168,12 +168,12 @@ export function AnalysisReport({ result }: AnalysisReportProps) {
 
       {/* Keyword Analysis Card */}
       <Card className="border-0 shadow-lg">
-        <CardHeader className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-t-lg">
+        <CardHeader className="bg-orange-600 text-white rounded-t-lg">
           <CardTitle className="flex items-center gap-3">
             <Code className="h-6 w-6" />
             Analisis Keywords & Skills
           </CardTitle>
-          <CardDescription className="text-purple-100">
+          <CardDescription className="text-orange-100">
             Skill dan teknologi yang ditemukan dalam CV Anda
           </CardDescription>
         </CardHeader>

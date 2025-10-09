@@ -74,7 +74,7 @@ const modernFaqs: FAQItemWithIcon[] = [
     question: "Bisakah saya menganalisis resume dalam bahasa lain?",
     answer: "Saat ini dioptimalkan untuk resume bahasa Indonesia dan Inggris. Kami sedang aktif mengembangkan dukungan untuk bahasa tambahan berdasarkan permintaan pengguna.",
     icon: Users,
-    color: "from-indigo-500 to-purple-500"
+    color: "slate-700"
   }
 ]
 
@@ -123,10 +123,10 @@ export function FAQSection({ isDarkMode = false }: FAQSectionProps) {
                 openIndex === index
                   ? isDarkMode 
                     ? 'bg-white/10 border-white/20 shadow-xl' 
-                    : 'bg-white border-violet-200 shadow-xl'
+                    : 'bg-white border-orange-200 shadow-xl'
                   : isDarkMode
                     ? 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20'
-                    : 'bg-white/80 border-white/50 hover:bg-white hover:border-violet-200'
+                    : 'bg-white/80 border-white/50 hover:bg-white hover:border-orange-200'
               } backdrop-blur-xl`}
               onClick={() => toggleFAQ(index)}
             >

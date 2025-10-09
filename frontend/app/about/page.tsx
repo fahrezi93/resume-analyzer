@@ -141,9 +141,10 @@ export default function AboutPage() {
           </Link>
           
           <div className="hidden md:flex items-center space-x-6">
-            <Link href="/features" className={`text-sm font-medium ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>Fitur</Link>
-            <Link href="/pricing" className={`text-sm font-medium ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>Harga</Link>
-            <span className={`text-sm font-medium ${isDarkMode ? 'text-white' : 'text-gray-900'} border-b-2 border-violet-500`}>Tentang</span>
+            <Link href="/" className={`text-sm font-medium ${isDarkMode ? 'text-gray-300 hover:text-orange-400' : 'text-gray-600 hover:text-orange-600'} transition-colors border-b-2 border-transparent hover:border-orange-500`}>Beranda</Link>
+            <Link href="/features" className={`text-sm font-medium ${isDarkMode ? 'text-gray-300 hover:text-orange-400' : 'text-gray-600 hover:text-orange-600'} transition-colors border-b-2 border-transparent hover:border-orange-500`}>Fitur</Link>
+            <Link href="/pricing" className={`text-sm font-medium ${isDarkMode ? 'text-gray-300 hover:text-orange-400' : 'text-gray-600 hover:text-orange-600'} transition-colors border-b-2 border-transparent hover:border-orange-500`}>Harga</Link>
+            <span className={`text-sm font-medium ${isDarkMode ? 'text-white' : 'text-gray-900'} border-b-2 border-orange-500`}>Tentang</span>
           </div>
 
           <button 
@@ -157,8 +158,9 @@ export default function AboutPage() {
 
       {/* Back Button */}
       <div className="fixed top-6 left-6 z-50">
-        <Link href="/" className={`p-4 rounded-2xl ${isDarkMode ? 'bg-white/10 hover:bg-white/20 text-white' : 'bg-white/80 hover:bg-white text-gray-800'} backdrop-blur-md border ${isDarkMode ? 'border-white/10' : 'border-white/20'} shadow-lg hover:shadow-xl transition-all duration-300 hover-lift`}>
-          <ArrowLeft className="w-5 h-5" />
+        <Link href="/" className={`group flex items-center space-x-2 px-4 py-3 rounded-xl ${isDarkMode ? 'bg-slate-800/90 hover:bg-slate-700 text-white border-slate-700' : 'bg-white/90 hover:bg-orange-50 text-gray-800 border-orange-200'} backdrop-blur-md border shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105`}>
+          <ArrowLeft className="w-4 h-4 group-hover:text-orange-500 transition-colors" />
+          <span className="text-sm font-medium group-hover:text-orange-500 transition-colors">Kembali</span>
         </Link>
       </div>
 

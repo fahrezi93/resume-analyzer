@@ -366,9 +366,10 @@ export default function Home() {
           </div>
           
           <div className="hidden md:flex items-center space-x-6">
-            <Link href="/features" className={`text-sm font-medium ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>Fitur</Link>
-            <Link href="/pricing" className={`text-sm font-medium ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>Harga</Link>
-            <Link href="/about" className={`text-sm font-medium ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>Tentang</Link>
+            <Link href="/" className={`text-sm font-medium ${isDarkMode ? 'text-gray-300 hover:text-orange-400' : 'text-gray-600 hover:text-orange-600'} transition-colors border-b-2 border-transparent hover:border-orange-500`}>Beranda</Link>
+            <Link href="/features" className={`text-sm font-medium ${isDarkMode ? 'text-gray-300 hover:text-orange-400' : 'text-gray-600 hover:text-orange-600'} transition-colors border-b-2 border-transparent hover:border-orange-500`}>Fitur</Link>
+            <Link href="/pricing" className={`text-sm font-medium ${isDarkMode ? 'text-gray-300 hover:text-orange-400' : 'text-gray-600 hover:text-orange-600'} transition-colors border-b-2 border-transparent hover:border-orange-500`}>Harga</Link>
+            <Link href="/about" className={`text-sm font-medium ${isDarkMode ? 'text-gray-300 hover:text-orange-400' : 'text-gray-600 hover:text-orange-600'} transition-colors border-b-2 border-transparent hover:border-orange-500`}>Tentang</Link>
           </div>
 
           <button 
@@ -673,21 +674,21 @@ export default function Home() {
                 title: "Upload CV",
                 description: "Upload file CV Anda dalam format PDF atau DOCX dengan mudah",
                 icon: Upload,
-                gradient: "from-violet-500 to-purple-600"
+                bgColor: "bg-orange-500"
               },
               {
                 step: "02", 
                 title: "AI Analysis",
                 description: "Sistem AI kami menganalisis konten, struktur, dan keyword dalam CV Anda",
                 icon: Brain,
-                gradient: "from-purple-500 to-pink-600"
+                bgColor: "bg-orange-600"
               },
               {
                 step: "03",
                 title: "Get Insights",
                 description: "Terima analisis lengkap dan rekomendasi untuk meningkatkan CV Anda",
                 icon: Star,
-                gradient: "from-pink-500 to-orange-600"
+                bgColor: "bg-slate-500"
               }
             ].map((item, index) => (
               <div key={index} className="relative">
@@ -695,7 +696,7 @@ export default function Home() {
                   <div className={`text-4xl font-bold ${isDarkMode ? 'text-white/20' : 'text-gray-100'} mb-3`}>
                     {item.step}
                   </div>
-                  <div className={`inline-flex items-center justify-center w-14 h-14 bg-gradient-to-r ${item.gradient} rounded-2xl mb-5 -mt-6 shadow-lg`}>
+                  <div className={`inline-flex items-center justify-center w-14 h-14 ${item.bgColor} rounded-2xl mb-5 -mt-6 shadow-lg`}>
                     <item.icon className="h-7 w-7 text-white" />
                   </div>
                   <h3 className={`text-lg font-display font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-3`}>
