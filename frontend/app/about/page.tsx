@@ -71,25 +71,25 @@ export default function AboutPage() {
       icon: Target,
       title: "Fokus pada Hasil",
       description: "Kami berkomitmen memberikan hasil nyata yang dapat meningkatkan peluang karir Anda",
-      gradient: "from-violet-500 to-purple-600"
+      gradient: "orange-500"
     },
     {
       icon: Heart,
       title: "Peduli Pengguna",
       description: "Setiap fitur dirancang dengan mempertimbangkan kebutuhan dan pengalaman pengguna",
-      gradient: "from-pink-500 to-rose-500"
+      gradient: "orange-600"
     },
     {
       icon: Lightbulb,
       title: "Inovasi Berkelanjutan",
       description: "Terus mengembangkan teknologi AI terdepan untuk memberikan solusi terbaik",
-      gradient: "from-yellow-500 to-orange-500"
+      gradient: "orange-700"
     },
     {
       icon: Shield,
       title: "Kepercayaan & Keamanan",
       description: "Menjaga data pengguna dengan standar keamanan tertinggi dan transparansi penuh",
-      gradient: "from-green-500 to-teal-500"
+      gradient: "slate-500"
     }
   ]
 
@@ -122,19 +122,19 @@ export default function AboutPage() {
   ]
 
   return (
-    <div className={`min-h-screen transition-all duration-500 ${isDarkMode ? 'bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900' : 'bg-gradient-to-br from-violet-50 via-orange-50 to-rose-50'}`}>
+    <div className={`min-h-screen transition-all duration-500 ${isDarkMode ? 'bg-slate-900' : 'bg-orange-50'}`}>
       {/* Floating Elements Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-violet-400 to-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
-        <div className="absolute top-40 right-20 w-72 h-72 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-40 w-72 h-72 bg-gradient-to-r from-pink-400 to-red-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-orange-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
+        <div className="absolute top-40 right-20 w-72 h-72 bg-slate-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-8 left-40 w-72 h-72 bg-orange-300 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-4000"></div>
       </div>
 
       {/* Navigation */}
       <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-3">
         <div className="flex items-center space-x-8">
           <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-violet-500 to-purple-500 rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center">
               <Brain className="w-5 h-5 text-white" />
             </div>
             <span className={`font-bold text-lg ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>ResumeAI</span>
@@ -165,14 +165,14 @@ export default function AboutPage() {
       <div className="relative pt-24 pb-16 px-6">
         {/* Hero Section */}
         <div className="max-w-4xl mx-auto text-center mb-20">
-          <div className={`inline-flex items-center px-4 py-2 rounded-full ${isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-violet-100 text-violet-700'} mb-6`}>
+          <div className={`inline-flex items-center px-4 py-2 rounded-full ${isDarkMode ? 'bg-slate-800 text-orange-300' : 'bg-orange-100 text-orange-700'} mb-6`}>
             <Users className="w-4 h-4 mr-2" />
             <span className="text-sm font-medium">Tentang Kami</span>
           </div>
 
           <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
             Membantu Anda Mencapai
-            <span className="block bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <span className="block text-orange-600">
               Karir Impian
             </span>
           </h1>
@@ -190,7 +190,7 @@ export default function AboutPage() {
               { number: "3x", label: "Peningkatan Callback", icon: TrendingUp }
             ].map((stat, index) => (
               <div key={index} className={`p-6 rounded-2xl ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white/70 border border-white/50'} backdrop-blur-sm text-center`}>
-                <stat.icon className={`w-6 h-6 mb-3 mx-auto ${isDarkMode ? 'text-violet-400' : 'text-violet-600'}`} />
+                <stat.icon className={`w-6 h-6 mb-3 mx-auto ${isDarkMode ? 'text-orange-400' : 'text-orange-600'}`} />
                 <div className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-1`}>
                   {stat.number}
                 </div>
@@ -216,7 +216,7 @@ export default function AboutPage() {
                 Visi kami adalah menciptakan dunia di mana kualitas resume tidak lagi menjadi penghalang untuk mendapatkan pekerjaan impian, melainkan menjadi jembatan yang menghubungkan talenta dengan peluang yang tepat.
               </p>
             </div>
-            <div className={`p-8 rounded-3xl ${isDarkMode ? 'bg-gradient-to-br from-purple-900/30 to-pink-900/30 border border-white/10' : 'bg-gradient-to-br from-violet-100 to-purple-100 border border-violet-200'} backdrop-blur-xl`}>
+            <div className={`p-8 rounded-3xl ${isDarkMode ? 'bg-slate-800 border border-white/10' : 'bg-orange-100 border border-orange-200'} backdrop-blur-xl`}>
               <div className="grid grid-cols-2 gap-6">
                 {[
                   { icon: Globe, title: "Global Reach", desc: "Melayani pengguna di 50+ negara" },
@@ -225,7 +225,7 @@ export default function AboutPage() {
                   { icon: CheckCircle, title: "Proven Results", desc: "Hasil terbukti dan terukur" }
                 ].map((item, index) => (
                   <div key={index} className="text-center">
-                    <item.icon className={`w-8 h-8 mx-auto mb-3 ${isDarkMode ? 'text-violet-400' : 'text-violet-600'}`} />
+                    <item.icon className={`w-8 h-8 mx-auto mb-3 ${isDarkMode ? 'text-orange-400' : 'text-orange-600'}`} />
                     <h3 className={`font-bold text-sm mb-1 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                       {item.title}
                     </h3>
@@ -254,7 +254,7 @@ export default function AboutPage() {
             {values.map((value, index) => (
               <div key={index} className={`group p-8 rounded-3xl ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white/80 border border-white/30'} backdrop-blur-xl shadow-xl hover:shadow-2xl transition-all duration-500 hover-lift`}>
                 <div className="flex items-start space-x-4">
-                  <div className={`p-3 rounded-2xl bg-gradient-to-r ${value.gradient} shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`p-3 rounded-2xl bg-${value.gradient} shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                     <value.icon className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -285,7 +285,7 @@ export default function AboutPage() {
           <div className="space-y-8">
             {milestones.map((milestone, index) => (
               <div key={index} className="flex items-start space-x-6">
-                <div className={`flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-r from-violet-500 to-purple-600 flex items-center justify-center text-white font-bold shadow-lg`}>
+                <div className={`flex-shrink-0 w-16 h-16 rounded-full bg-orange-500 flex items-center justify-center text-white font-bold shadow-lg`}>
                   {milestone.year}
                 </div>
                 <div className={`flex-1 p-6 rounded-2xl ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white/70 border border-white/50'} backdrop-blur-sm`}>
@@ -316,7 +316,7 @@ export default function AboutPage() {
             {teamMembers.map((member, index) => (
               <div key={index} className={`group text-center p-8 rounded-3xl ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white/80 border border-white/30'} backdrop-blur-xl shadow-xl hover:shadow-2xl transition-all duration-500 hover-lift`}>
                 <div className="relative mb-6">
-                  <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-r from-violet-500 to-purple-600 p-1 shadow-lg">
+                  <div className="w-24 h-24 mx-auto rounded-full bg-orange-500 p-1 shadow-lg">
                     <div className="w-full h-full rounded-full bg-gray-300 flex items-center justify-center text-2xl font-bold text-gray-600">
                       {member.name.split(' ').map(n => n[0]).join('')}
                     </div>
@@ -327,7 +327,7 @@ export default function AboutPage() {
                   {member.name}
                 </h3>
                 
-                <div className={`text-sm font-medium mb-4 ${isDarkMode ? 'text-violet-400' : 'text-violet-600'}`}>
+                <div className={`text-sm font-medium mb-4 ${isDarkMode ? 'text-orange-400' : 'text-orange-600'}`}>
                   {member.role}
                 </div>
                 
@@ -352,7 +352,7 @@ export default function AboutPage() {
 
         {/* Contact Section */}
         <div className="max-w-4xl mx-auto">
-          <div className={`p-12 rounded-3xl ${isDarkMode ? 'bg-gradient-to-r from-purple-900/50 to-pink-900/50 border border-white/10' : 'bg-gradient-to-r from-violet-100 to-purple-100 border border-violet-200'} backdrop-blur-xl text-center`}>
+          <div className={`p-12 rounded-3xl ${isDarkMode ? 'bg-slate-800 border border-white/10' : 'bg-orange-100 border border-orange-200'} backdrop-blur-xl text-center`}>
             <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
               Mari Terhubung
             </h2>
@@ -367,7 +367,7 @@ export default function AboutPage() {
                 { icon: Phone, title: "Telepon", value: "+62 123 456 7890" }
               ].map((contact, index) => (
                 <div key={index} className={`p-4 rounded-xl ${isDarkMode ? 'bg-white/10' : 'bg-white/70'} backdrop-blur-sm`}>
-                  <contact.icon className={`w-6 h-6 mx-auto mb-2 ${isDarkMode ? 'text-violet-400' : 'text-violet-600'}`} />
+                  <contact.icon className={`w-6 h-6 mx-auto mb-2 ${isDarkMode ? 'text-orange-400' : 'text-orange-600'}`} />
                   <div className={`font-medium ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-1`}>
                     {contact.title}
                   </div>
@@ -378,7 +378,7 @@ export default function AboutPage() {
               ))}
             </div>
             
-            <Link href="/" className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-2xl font-bold text-lg hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl">
+            <Link href="/" className="group inline-flex items-center px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white rounded-2xl font-bold text-lg hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl">
               <Sparkles className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
               Coba ResumeAI Sekarang
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />

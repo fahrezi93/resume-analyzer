@@ -42,7 +42,7 @@ export default function FeaturesPage() {
         "Identifikasi kekuatan dan kelemahan",
         "Rekomendasi peningkatan berbasis AI"
       ],
-      gradient: "from-violet-500 to-purple-600"
+      gradient: "orange-500"
     },
     {
       icon: Target,
@@ -54,7 +54,7 @@ export default function FeaturesPage() {
         "Saran kata kunci yang relevan",
         "Optimisasi untuk berbagai industri"
       ],
-      gradient: "from-orange-500 to-red-500"
+      gradient: "orange-600"
     },
     {
       icon: TrendingUp,
@@ -66,7 +66,7 @@ export default function FeaturesPage() {
         "Tracking progress improvement",
         "Visualisasi data yang mudah dipahami"
       ],
-      gradient: "from-green-500 to-teal-500"
+      gradient: "slate-500"
     },
     {
       icon: Shield,
@@ -78,7 +78,7 @@ export default function FeaturesPage() {
         "Compliance dengan GDPR dan SOC 2",
         "Audit keamanan berkala"
       ],
-      gradient: "from-blue-500 to-cyan-500"
+      gradient: "slate-600"
     },
     {
       icon: Zap,
@@ -90,7 +90,7 @@ export default function FeaturesPage() {
         "Response time < 30 detik",
         "Uptime 99.9% guaranteed"
       ],
-      gradient: "from-yellow-500 to-orange-500"
+      gradient: "orange-700"
     },
     {
       icon: Users,
@@ -140,19 +140,19 @@ export default function FeaturesPage() {
   ]
 
   return (
-    <div className={`min-h-screen transition-all duration-500 ${isDarkMode ? 'bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900' : 'bg-gradient-to-br from-violet-50 via-orange-50 to-rose-50'}`}>
+    <div className={`min-h-screen transition-all duration-500 ${isDarkMode ? 'bg-slate-900' : 'bg-orange-50'}`}>
       {/* Floating Elements Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-violet-400 to-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
-        <div className="absolute top-40 right-20 w-72 h-72 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-40 w-72 h-72 bg-gradient-to-r from-pink-400 to-red-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-orange-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
+        <div className="absolute top-40 right-20 w-72 h-72 bg-slate-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-8 left-40 w-72 h-72 bg-orange-300 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-4000"></div>
       </div>
 
       {/* Navigation */}
       <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-3">
         <div className="flex items-center space-x-8">
           <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-violet-500 to-purple-500 rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center">
               <Brain className="w-5 h-5 text-white" />
             </div>
             <span className={`font-bold text-lg ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>ResumeAI</span>
@@ -183,14 +183,14 @@ export default function FeaturesPage() {
       <div className="relative pt-24 pb-16 px-6">
         {/* Hero Section */}
         <div className="max-w-6xl mx-auto text-center mb-16">
-          <div className={`inline-flex items-center px-4 py-2 rounded-full ${isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-violet-100 text-violet-700'} mb-6`}>
+          <div className={`inline-flex items-center px-4 py-2 rounded-full ${isDarkMode ? 'bg-slate-800 text-orange-300' : 'bg-orange-100 text-orange-700'} mb-6`}>
             <Sparkles className="w-4 h-4 mr-2" />
             <span className="text-sm font-medium">Fitur Canggih</span>
           </div>
 
           <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
             Fitur yang Membuat
-            <span className="block bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <span className="block text-orange-600">
               Perbedaan
             </span>
           </h1>
@@ -208,7 +208,7 @@ export default function FeaturesPage() {
               { number: "99.9%", label: "Uptime", icon: Shield }
             ].map((stat, index) => (
               <div key={index} className={`p-6 rounded-2xl ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white/70 border border-white/50'} backdrop-blur-sm text-center`}>
-                <stat.icon className={`w-6 h-6 mb-3 mx-auto ${isDarkMode ? 'text-violet-400' : 'text-violet-600'}`} />
+                <stat.icon className={`w-6 h-6 mb-3 mx-auto ${isDarkMode ? 'text-orange-400' : 'text-orange-600'}`} />
                 <div className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-1`}>
                   {stat.number}
                 </div>
@@ -226,7 +226,7 @@ export default function FeaturesPage() {
             {mainFeatures.map((feature, index) => (
               <div key={index} className={`group p-8 rounded-3xl ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white/80 border border-white/30'} backdrop-blur-xl shadow-xl hover:shadow-2xl transition-all duration-500 hover-lift`}>
                 <div className="flex items-start space-x-4 mb-6">
-                  <div className={`p-3 rounded-2xl bg-gradient-to-r ${feature.gradient} shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`p-3 rounded-2xl bg-${feature.gradient} shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                     <feature.icon className="w-8 h-8 text-white" />
                   </div>
                   <div>
@@ -242,7 +242,7 @@ export default function FeaturesPage() {
                 <div className="space-y-3">
                   {feature.benefits.map((benefit, benefitIndex) => (
                     <div key={benefitIndex} className="flex items-center space-x-3">
-                      <CheckCircle className={`w-5 h-5 ${isDarkMode ? 'text-green-400' : 'text-green-500'} flex-shrink-0`} />
+                      <CheckCircle className={`w-5 h-5 ${isDarkMode ? 'text-orange-400' : 'text-orange-500'} flex-shrink-0`} />
                       <span className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                         {benefit}
                       </span>
@@ -268,7 +268,7 @@ export default function FeaturesPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {additionalFeatures.map((feature, index) => (
               <div key={index} className={`group p-6 rounded-2xl ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white/70 border border-white/50'} backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover-lift`}>
-                <feature.icon className={`w-8 h-8 mb-4 ${isDarkMode ? 'text-violet-400' : 'text-violet-600'} group-hover:scale-110 transition-transform duration-300`} />
+                <feature.icon className={`w-8 h-8 mb-4 ${isDarkMode ? 'text-orange-400' : 'text-orange-600'} group-hover:scale-110 transition-transform duration-300`} />
                 <h3 className={`text-lg font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                   {feature.title}
                 </h3>
@@ -282,7 +282,7 @@ export default function FeaturesPage() {
 
         {/* CTA Section */}
         <div className="max-w-4xl mx-auto text-center">
-          <div className={`p-12 rounded-3xl ${isDarkMode ? 'bg-gradient-to-r from-purple-900/50 to-pink-900/50 border border-white/10' : 'bg-gradient-to-r from-violet-100 to-purple-100 border border-violet-200'} backdrop-blur-xl`}>
+          <div className={`p-12 rounded-3xl ${isDarkMode ? 'bg-slate-800 border border-white/10' : 'bg-orange-100 border border-orange-200'} backdrop-blur-xl`}>
             <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
               Siap Mengoptimalkan Resume Anda?
             </h2>
@@ -291,7 +291,7 @@ export default function FeaturesPage() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/" className="group px-8 py-4 bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-2xl font-bold text-lg hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl">
+              <Link href="/" className="group px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white rounded-2xl font-bold text-lg hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl">
                 <div className="flex items-center">
                   <Zap className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
                   Mulai Analisis Gratis

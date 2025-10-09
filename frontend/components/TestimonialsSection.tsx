@@ -60,19 +60,19 @@ export function TestimonialsSection({ isDarkMode = false }: TestimonialsSectionP
     <div className="py-0 relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 opacity-30">
-        <div className={`absolute top-10 left-20 w-24 h-24 ${isDarkMode ? 'bg-purple-500/20' : 'bg-violet-200/50'} rounded-full blur-2xl animate-float`}></div>
-        <div className={`absolute bottom-10 right-20 w-32 h-32 ${isDarkMode ? 'bg-pink-500/20' : 'bg-purple-200/50'} rounded-full blur-2xl animate-float`} style={{animationDelay: '3s'}}></div>
-        <div className={`absolute top-1/2 left-10 w-16 h-16 ${isDarkMode ? 'bg-orange-500/15' : 'bg-pink-200/40'} rounded-full blur-xl animate-float`} style={{animationDelay: '5s'}}></div>
+        <div className={`absolute top-10 left-20 w-24 h-24 ${isDarkMode ? 'bg-orange-500/20' : 'bg-orange-200/50'} rounded-full blur-2xl animate-float`}></div>
+        <div className={`absolute bottom-10 right-20 w-32 h-32 ${isDarkMode ? 'bg-slate-500/20' : 'bg-slate-200/50'} rounded-full blur-2xl animate-float`} style={{animationDelay: '3s'}}></div>
+        <div className={`absolute top-1/2 left-10 w-16 h-16 ${isDarkMode ? 'bg-orange-500/15' : 'bg-orange-200/40'} rounded-full blur-xl animate-float`} style={{animationDelay: '5s'}}></div>
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative py-16">
         <div className="text-center mb-12">
-          <div className={`inline-block px-3 py-1.5 rounded-full ${isDarkMode ? 'bg-purple-900/30 text-purple-300' : 'bg-violet-100 text-violet-700'} mb-4`}>
+          <div className={`inline-block px-3 py-1.5 rounded-full ${isDarkMode ? 'bg-slate-800 text-orange-300' : 'bg-orange-100 text-orange-700'} mb-4`}>
             <span className="text-sm font-medium">Kisah Sukses</span>
           </div>
           <h2 className={`text-3xl md:text-4xl font-display font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
             Apa Kata 
-            <span className="block bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <span className="block text-orange-600">
               Pengguna Kami?
             </span>
           </h2>
@@ -91,14 +91,14 @@ export function TestimonialsSection({ isDarkMode = false }: TestimonialsSectionP
               </div>
               
               <div className="relative mb-5">
-                <Quote className={`absolute -top-1 -left-1 h-6 w-6 ${isDarkMode ? 'text-purple-400/40' : 'text-violet-200'}`} />
+                <Quote className={`absolute -top-1 -left-1 h-6 w-6 ${isDarkMode ? 'text-orange-400/40' : 'text-orange-200'}`} />
                 <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-700'} italic leading-relaxed pl-5 text-sm`}>
                   "{testimonial.content}"
                 </p>
               </div>
 
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-violet-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
+                <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center shadow-lg">
                   <span className="text-white font-bold text-sm">
                     {testimonial.name.split(' ').map(n => n[0]).join('')}
                   </span>
@@ -106,7 +106,7 @@ export function TestimonialsSection({ isDarkMode = false }: TestimonialsSectionP
                 <div>
                   <div className={`font-display font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'} text-sm`}>{testimonial.name}</div>
                   <div className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>{testimonial.role}</div>
-                  <div className={`text-xs ${isDarkMode ? 'text-violet-400' : 'text-violet-600'}`}>{testimonial.company}</div>
+                  <div className={`text-xs ${isDarkMode ? 'text-orange-400' : 'text-orange-600'}`}>{testimonial.company}</div>
                 </div>
               </div>
             </div>

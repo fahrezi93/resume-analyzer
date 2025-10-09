@@ -107,19 +107,19 @@ export default function PricingPage() {
   ]
 
   return (
-    <div className={`min-h-screen transition-all duration-500 ${isDarkMode ? 'bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900' : 'bg-gradient-to-br from-violet-50 via-orange-50 to-rose-50'}`}>
+    <div className={`min-h-screen transition-all duration-500 ${isDarkMode ? 'bg-slate-900' : 'bg-orange-50'}`}>
       {/* Floating Elements Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-violet-400 to-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
-        <div className="absolute top-40 right-20 w-72 h-72 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-40 w-72 h-72 bg-gradient-to-r from-pink-400 to-red-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-orange-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
+        <div className="absolute top-40 right-20 w-72 h-72 bg-slate-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-8 left-40 w-72 h-72 bg-orange-300 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-4000"></div>
       </div>
 
       {/* Navigation */}
       <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-3">
         <div className="flex items-center space-x-8">
           <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-violet-500 to-purple-500 rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center">
               <Brain className="w-5 h-5 text-white" />
             </div>
             <span className={`font-bold text-lg ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>ResumeAI</span>
@@ -150,14 +150,14 @@ export default function PricingPage() {
       <div className="relative pt-24 pb-16 px-6">
         {/* Hero Section */}
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <div className={`inline-flex items-center px-4 py-2 rounded-full ${isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-violet-100 text-violet-700'} mb-6`}>
+          <div className={`inline-flex items-center px-4 py-2 rounded-full ${isDarkMode ? 'bg-slate-800 text-orange-300' : 'bg-orange-100 text-orange-700'} mb-6`}>
             <Crown className="w-4 h-4 mr-2" />
             <span className="text-sm font-medium">Paket Harga</span>
           </div>
 
           <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
             Pilih Paket yang
-            <span className="block bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <span className="block text-orange-600">
               Tepat untuk Anda
             </span>
           </h1>
@@ -173,7 +173,7 @@ export default function PricingPage() {
             </span>
             <button
               onClick={() => setIsAnnual(!isAnnual)}
-              className={`relative w-14 h-7 rounded-full transition-colors duration-300 ${isAnnual ? 'bg-violet-500' : 'bg-gray-300'}`}
+              className={`relative w-14 h-7 rounded-full transition-colors duration-300 ${isAnnual ? 'bg-orange-500' : 'bg-gray-300'}`}
             >
               <div className={`absolute w-5 h-5 bg-white rounded-full top-1 transition-transform duration-300 ${isAnnual ? 'translate-x-8' : 'translate-x-1'}`} />
             </button>
@@ -196,13 +196,13 @@ export default function PricingPage() {
                 key={index} 
                 className={`relative p-8 rounded-3xl transition-all duration-500 hover-lift ${
                   plan.popular 
-                    ? `${isDarkMode ? 'bg-gradient-to-b from-purple-900/50 to-pink-900/50 border-2 border-violet-500' : 'bg-gradient-to-b from-violet-100 to-purple-100 border-2 border-violet-400'} shadow-2xl scale-105` 
-                    : `${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white/80 border border-white/30'} shadow-xl hover:shadow-2xl`
-                } backdrop-blur-xl`}
+                    ? `${isDarkMode ? 'bg-slate-800/80 border-2 border-orange-500' : 'bg-orange-100 border-2 border-orange-400'} shadow-2xl scale-105` 
+                    : `${isDarkMode ? 'bg-slate-800/50 border border-slate-700' : 'bg-white border border-gray-200'} shadow-xl hover:shadow-2xl`
+                }`}
               >
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-gradient-to-r from-violet-500 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center">
+                    <div className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center">
                       <Star className="w-4 h-4 mr-1" />
                       Paling Populer
                     </div>
@@ -210,7 +210,7 @@ export default function PricingPage() {
                 )}
 
                 <div className="text-center mb-8">
-                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r ${plan.gradient} mb-4 shadow-lg`}>
+                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl ${index === 0 ? 'bg-gray-500' : index === 1 ? 'bg-orange-500' : 'bg-slate-600'} mb-4 shadow-lg`}>
                     {index === 0 && <Shield className="w-8 h-8 text-white" />}
                     {index === 1 && <Rocket className="w-8 h-8 text-white" />}
                     {index === 2 && <Crown className="w-8 h-8 text-white" />}
@@ -248,9 +248,9 @@ export default function PricingPage() {
 
                   <button className={`w-full py-3 rounded-xl font-bold text-lg transition-all duration-300 ${
                     plan.popular
-                      ? 'bg-gradient-to-r from-violet-600 to-purple-600 text-white hover:scale-105 shadow-lg hover:shadow-xl'
+                      ? 'bg-orange-500 text-white hover:bg-orange-600 shadow-lg hover:shadow-xl'
                       : isDarkMode
-                        ? 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
+                        ? 'bg-slate-700 text-white hover:bg-slate-600 border border-slate-600'
                         : 'bg-gray-100 text-gray-900 hover:bg-gray-200 border border-gray-200'
                   }`}>
                     {plan.cta}
@@ -300,29 +300,29 @@ export default function PricingPage() {
                 icon: TrendingUp,
                 title: "ROI Terbukti",
                 description: "Rata-rata peningkatan callback interview hingga 3x lipat",
-                gradient: "from-green-500 to-teal-500"
+                color: "bg-orange-500"
               },
               {
                 icon: Clock,
                 title: "Hemat Waktu",
                 description: "Analisis dalam hitungan detik, bukan jam atau hari",
-                gradient: "from-blue-500 to-cyan-500"
+                color: "bg-slate-500"
               },
               {
                 icon: Award,
                 title: "Akurasi Tinggi",
                 description: "AI dengan akurasi 95%+ untuk berbagai industri",
-                gradient: "from-violet-500 to-purple-500"
+                color: "bg-orange-600"
               },
               {
                 icon: Users,
                 title: "Dipercaya 50K+",
                 description: "Ribuan profesional telah merasakan manfaatnya",
-                gradient: "from-orange-500 to-red-500"
+                color: "bg-slate-600"
               }
             ].map((item, index) => (
-              <div key={index} className={`text-center p-6 rounded-2xl ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white/70 border border-white/50'} backdrop-blur-sm hover-lift`}>
-                <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-r ${item.gradient} mb-4 shadow-lg`}>
+              <div key={index} className={`text-center p-6 rounded-2xl ${isDarkMode ? 'bg-slate-800/50 border border-slate-700' : 'bg-white border border-gray-200'} hover-lift`}>
+                <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl ${item.color} mb-4 shadow-lg`}>
                   <item.icon className="w-6 h-6 text-white" />
                 </div>
                 <h3 className={`text-lg font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
@@ -346,7 +346,7 @@ export default function PricingPage() {
 
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <div key={index} className={`p-6 rounded-2xl ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white/70 border border-white/50'} backdrop-blur-sm`}>
+              <div key={index} className={`p-6 rounded-2xl ${isDarkMode ? 'bg-slate-800/50 border border-slate-700' : 'bg-white border border-gray-200'}`}>
                 <h3 className={`text-lg font-bold mb-3 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                   {faq.question}
                 </h3>
@@ -360,7 +360,7 @@ export default function PricingPage() {
 
         {/* CTA Section */}
         <div className="max-w-4xl mx-auto text-center">
-          <div className={`p-12 rounded-3xl ${isDarkMode ? 'bg-gradient-to-r from-purple-900/50 to-pink-900/50 border border-white/10' : 'bg-gradient-to-r from-violet-100 to-purple-100 border border-violet-200'} backdrop-blur-xl`}>
+          <div className={`p-12 rounded-3xl ${isDarkMode ? 'bg-slate-800/80 border border-slate-700' : 'bg-orange-100 border border-orange-200'}`}>
             <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
               Mulai Transformasi Karir Anda Hari Ini
             </h2>
@@ -368,7 +368,7 @@ export default function PricingPage() {
               Bergabunglah dengan ribuan profesional yang telah menggunakan ResumeAI untuk mendapatkan pekerjaan impian mereka
             </p>
             
-            <Link href="/" className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-2xl font-bold text-lg hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl">
+            <Link href="/" className="group inline-flex items-center px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white rounded-2xl font-bold text-lg hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl">
               <Zap className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
               Coba Gratis Sekarang
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />

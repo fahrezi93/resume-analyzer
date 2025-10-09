@@ -44,31 +44,31 @@ const modernFaqs: FAQItemWithIcon[] = [
     question: "Apakah data resume saya aman?",
     answer: "Tentu saja! Keamanan data Anda adalah prioritas utama kami. Semua resume diproses secara lokal dan tidak pernah disimpan di server kami. Analisis terjadi secara real-time, dan data Anda langsung dihapus setelah pemrosesan.",
     icon: Shield,
-    color: "from-green-500 to-emerald-500"
+    color: "orange-500"
   },
   {
     question: "Format file apa yang didukung?",
     answer: "Saat ini kami mendukung format PDF dan DOCX. Pastikan resume Anda dalam salah satu format ini untuk hasil analisis yang optimal. Format lainnya akan segera hadir!",
     icon: Globe,
-    color: "from-blue-500 to-cyan-500"
+    color: "slate-500"
   },
   {
     question: "Berapa lama waktu analisis?",
     answer: "Analisis AI kami biasanya selesai dalam waktu kurang dari 30 detik. Waktu pemrosesan dapat bervariasi berdasarkan ukuran file dan kompleksitas konten, tetapi kami menjamin hasil yang sangat cepat.",
     icon: Clock,
-    color: "from-orange-500 to-red-500"
+    color: "orange-600"
   },
   {
     question: "Apakah layanan ini gratis?",
     answer: "Ya! ResumeAI saat ini gratis untuk semua pengguna. Kami berkomitmen membantu pencari kerja meningkatkan prospek karir mereka tanpa hambatan biaya.",
     icon: Sparkles,
-    color: "from-purple-500 to-pink-500"
+    color: "slate-600"
   },
   {
     question: "Seberapa akurat analisis AI?",
     answer: "Sistem AI kami menggunakan teknologi NLP terdepan dengan tingkat akurasi lebih dari 95%. Namun, kami merekomendasikan menggunakan analisis sebagai panduan bersama dengan penilaian profesional Anda.",
     icon: Zap,
-    color: "from-yellow-500 to-orange-500"
+    color: "orange-700"
   },
   {
     question: "Bisakah saya menganalisis resume dalam bahasa lain?",
@@ -93,20 +93,20 @@ export function FAQSection({ isDarkMode = false }: FAQSectionProps) {
     <div className="py-0 px-6 relative overflow-hidden" id="faq">
       {/* Background decorations */}
       <div className="absolute inset-0 opacity-40">
-        <div className={`absolute top-16 right-20 w-28 h-28 ${isDarkMode ? 'bg-purple-500/20' : 'bg-violet-200/50'} rounded-full blur-3xl animate-float`}></div>
-        <div className={`absolute bottom-20 left-16 w-36 h-36 ${isDarkMode ? 'bg-pink-500/20' : 'bg-pink-200/50'} rounded-full blur-3xl animate-float`} style={{animationDelay: '4s'}}></div>
+        <div className={`absolute top-16 right-20 w-28 h-28 ${isDarkMode ? 'bg-orange-500/20' : 'bg-orange-200/50'} rounded-full blur-3xl animate-float`}></div>
+        <div className={`absolute bottom-20 left-16 w-36 h-36 ${isDarkMode ? 'bg-slate-500/20' : 'bg-slate-200/50'} rounded-full blur-3xl animate-float`} style={{animationDelay: '4s'}}></div>
         <div className={`absolute top-1/3 left-1/3 w-20 h-20 ${isDarkMode ? 'bg-orange-500/15' : 'bg-orange-200/40'} rounded-full blur-2xl animate-float`} style={{animationDelay: '6s'}}></div>
       </div>
 
       <div className="max-w-5xl mx-auto relative py-16">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className={`inline-block px-3 py-1.5 rounded-full ${isDarkMode ? 'bg-purple-900/30 text-purple-300' : 'bg-violet-100 text-violet-700'} mb-4`}>
+          <div className={`inline-block px-3 py-1.5 rounded-full ${isDarkMode ? 'bg-slate-800 text-orange-300' : 'bg-orange-100 text-orange-700'} mb-4`}>
             <span className="text-sm font-medium">Ada Pertanyaan?</span>
           </div>
           <h2 className={`text-3xl md:text-4xl font-display font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
             Pertanyaan yang Sering
-            <span className="block bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <span className="block text-orange-600">
               Diajukan
             </span>
           </h2>
@@ -133,10 +133,10 @@ export function FAQSection({ isDarkMode = false }: FAQSectionProps) {
               {/* Question with Icon */}
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
-                  <div className={`p-2 rounded-xl bg-gradient-to-r ${faq.color} shadow-lg`}>
+                  <div className={`p-2 rounded-xl bg-${faq.color} shadow-lg`}>
                     <faq.icon className="w-5 h-5 text-white" />
                   </div>
-                  <h3 className={`text-lg font-display font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'} group-hover:text-violet-600 transition-colors duration-300`}>
+                  <h3 className={`text-lg font-display font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'} group-hover:text-orange-600 transition-colors duration-300`}>
                     {faq.question}
                   </h3>
                 </div>
@@ -158,14 +158,14 @@ export function FAQSection({ isDarkMode = false }: FAQSectionProps) {
 
               {/* Gradient Glow */}
               {openIndex === index && (
-                <div className={`absolute inset-0 bg-gradient-to-r ${faq.color} opacity-10 rounded-3xl blur-xl -z-10`}></div>
+                <div className={`absolute inset-0 bg-${faq.color} opacity-10 rounded-3xl blur-xl -z-10`}></div>
               )}
             </div>
           ))}
         </div>
 
         {/* CTA Section */}
-        <div className={`text-center p-8 rounded-2xl ${isDarkMode ? 'bg-gradient-to-r from-purple-900/50 to-pink-900/50 border border-white/10' : 'bg-gradient-to-r from-violet-100 to-purple-100 border border-violet-200'} backdrop-blur-xl`}>
+        <div className={`text-center p-8 rounded-2xl ${isDarkMode ? 'bg-slate-800 border border-white/10' : 'bg-orange-100 border border-orange-200'} backdrop-blur-xl`}>
           <div className="max-w-xl mx-auto">
             <h3 className={`text-2xl font-display font-bold mb-3 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
               Masih ada pertanyaan?
@@ -175,7 +175,7 @@ export function FAQSection({ isDarkMode = false }: FAQSectionProps) {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <button className="group px-6 py-3 bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-xl font-display font-semibold text-base hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+              <button className="group px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-xl font-display font-semibold text-base hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
                 <div className="flex items-center">
                   <HelpCircle className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
                   Hubungi Dukungan
