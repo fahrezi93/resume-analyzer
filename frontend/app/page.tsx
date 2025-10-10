@@ -360,8 +360,7 @@ export default function Home() {
   }
 
   return (
-    <PageTransition>
-      <div className={`min-h-screen transition-all duration-500 ${isDarkMode ? 'bg-slate-900' : 'bg-orange-50'}`}>
+    <div className={`min-h-screen transition-all duration-500 ${isDarkMode ? 'bg-slate-900' : 'bg-orange-50'}`}>
       {/* Floating Elements Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div 
@@ -389,7 +388,12 @@ export default function Home() {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-3"
+        className="fixed top-6 z-50 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-3"
+        style={{ 
+          left: '50%', 
+          transform: 'translateX(-50%)',
+          width: 'fit-content'
+        }}
       >
         <div className="flex items-center space-x-8">
           <div className="flex items-center space-x-2">
@@ -421,83 +425,59 @@ export default function Home() {
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7">
-              <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className={`inline-flex items-center px-4 py-2 rounded-full ${isDarkMode ? 'bg-slate-800 text-orange-300' : 'bg-orange-100 text-orange-700'} mb-6`}
-              >
+              <div className={`inline-flex items-center px-4 py-2 rounded-full ${isDarkMode ? 'bg-slate-800 text-orange-300' : 'bg-orange-100 text-orange-700'} mb-6`}>
                 <Sparkles className="w-4 h-4 mr-2" />
                 <span className="text-sm font-medium">Didukung AI Canggih</span>
-              </motion.div>
+              </div>
 
-              <motion.h1 
-                variants={heroTextVariants}
-                initial="initial"
-                animate="animate"
-                className={`text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}
-              >
+              <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                 Revolusi
                 <span className="block text-orange-600">
                   Resume
                 </span>
-              </motion.h1>
+              </h1>
 
-              <motion.p 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className={`text-lg lg:text-xl leading-relaxed mb-6 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-xl`}
-              >
+              <p className={`text-lg lg:text-xl leading-relaxed mb-6 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-xl`}>
                 Transformasikan karir Anda dengan analisis resume bertenaga AI yang melampaui biasa. 
                 <span className="font-semibold text-orange-600"> Temukan potensi Anda.</span>
-              </motion.p>              <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-                className="flex flex-col sm:flex-row gap-4 mb-12"
-              >
-                <motion.button 
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+              </p>              <div className="flex flex-col sm:flex-row gap-4 mb-12">
+                <button 
                   onClick={() => setShowAnalyzer(true)}
-                  className="group relative px-8 py-4 bg-orange-500 hover:bg-orange-600 rounded-2xl text-white font-semibold text-lg overflow-hidden transition-all duration-300 shadow-xl hover:shadow-2xl"
+                  className="group relative px-8 py-4 bg-orange-500 hover:bg-orange-600 rounded-2xl text-white font-semibold text-lg overflow-hidden transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl"
                 >
                   <div className="relative flex items-center">
                     <Rocket className="w-5 h-5 mr-2" />
                     Mulai Analisis
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                   </div>
-                </motion.button>
+                </button>
 
-                <motion.button 
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`px-8 py-4 rounded-2xl font-semibold text-lg border-2 ${isDarkMode ? 'border-white/20 text-white hover:bg-white/10' : 'border-gray-300 text-gray-700 hover:bg-gray-50'} transition-all duration-300`}
-                >
+                <button className={`px-8 py-4 rounded-2xl font-semibold text-lg border-2 ${isDarkMode ? 'border-white/20 text-white hover:bg-white/10' : 'border-gray-300 text-gray-700 hover:bg-gray-50'} transition-all duration-300`}>
                   <Play className="w-5 h-5 mr-2 inline" />
                   Lihat Demo
-                </motion.button>
-              </motion.div>
+                </button>
+              </div>
 
               {/* Live Stats */}
-              <motion.div 
-                variants={staggerContainer}
-                initial="initial"
-                animate="animate"
-                className="grid grid-cols-3 gap-6"
-              >
-                {[
-                  { number: "50K+", label: "Resume Dianalisis", icon: FileText },
-                  { number: "98%", label: "Tingkat Berhasil", icon: Award },
-                  { number: "24/7", label: "Dukungan AI", icon: Globe }
-                ].map((stat, index) => (
-                  <motion.div 
-                    key={index}
-                    variants={scaleIn}
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    className={`p-4 rounded-2xl ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white/70 border border-white/50'} backdrop-blur-sm cursor-pointer`}
-                  >
+              <AnimateOnScroll variants={staggerContainer}>
+                <motion.div 
+                  variants={staggerContainer}
+                  initial="initial"
+                  whileInView="animate"
+                  viewport={{ once: true, amount: 0.3 }}
+                  className="grid grid-cols-3 gap-6"
+                >
+                  {[
+                    { number: "50K+", label: "Resume Dianalisis", icon: FileText },
+                    { number: "98%", label: "Tingkat Berhasil", icon: Award },
+                    { number: "24/7", label: "Dukungan AI", icon: Globe }
+                  ].map((stat, index) => (
+                    <motion.div 
+                      key={index}
+                      variants={fadeInUp}
+                      whileHover={{ scale: 1.05, y: -5 }}
+                      className={`p-4 rounded-2xl ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white/70 border border-white/50'} backdrop-blur-sm cursor-pointer`}
+                    >
                     <stat.icon className={`w-6 h-6 mb-2 ${isDarkMode ? 'text-orange-400' : 'text-orange-600'}`} />
                     <div className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-1`}>
                       {stat.number}
@@ -507,16 +487,12 @@ export default function Home() {
                     </div>
                   </motion.div>
                 ))}
-              </motion.div>
+                </motion.div>
+              </AnimateOnScroll>
             </div>
 
             {/* Right Visual */}
-            <motion.div 
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="lg:col-span-5"
-            >
+            <div className="lg:col-span-5">
               <div className="relative">
                 {/* Main Card */}
                 <div 
@@ -578,7 +554,7 @@ export default function Home() {
                   <Compass className="w-5 h-5 text-white" />
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
@@ -1009,6 +985,5 @@ export default function Home() {
         </div>  
       </footer>
     </div>
-    </PageTransition>
   )
 }
