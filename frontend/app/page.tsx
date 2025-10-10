@@ -4,12 +4,25 @@ import { useState, useEffect } from 'react'
 import { useDropzone } from 'react-dropzone'
 import axios from 'axios'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { AnalysisReport } from '@/components/AnalysisReport'
 import { TestimonialsSection } from '@/components/TestimonialsSection'
 import { FAQSection } from '@/components/FAQSection'
 import { LoadingAnimation } from '@/components/LoadingAnimation'
+import AnimateOnScroll from '@/components/AnimateOnScroll'
+import PageTransition from '@/components/PageTransition'
+import { 
+  fadeInUp, 
+  fadeInLeft, 
+  fadeInRight, 
+  staggerContainer, 
+  heroTextVariants,
+  scaleIn,
+  iconBounce,
+  floating
+} from '@/lib/animations'
 import { 
   Upload, 
   FileText, 
@@ -347,16 +360,37 @@ export default function Home() {
   }
 
   return (
-    <div className={`min-h-screen transition-all duration-500 ${isDarkMode ? 'bg-slate-900' : 'bg-orange-50'}`}>
+    <PageTransition>
+      <div className={`min-h-screen transition-all duration-500 ${isDarkMode ? 'bg-slate-900' : 'bg-orange-50'}`}>
       {/* Floating Elements Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-orange-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
-        <div className="absolute top-40 right-20 w-72 h-72 bg-slate-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-40 w-72 h-72 bg-orange-300 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-4000"></div>
+        <motion.div 
+          className="absolute top-20 left-10 w-72 h-72 bg-orange-400 rounded-full mix-blend-multiply filter blur-xl opacity-10"
+          animate={floating}
+        />
+        <motion.div 
+          className="absolute top-40 right-20 w-72 h-72 bg-slate-400 rounded-full mix-blend-multiply filter blur-xl opacity-10"
+          animate={{
+            ...floating,
+            transition: { ...floating.transition, delay: 1 }
+          }}
+        />
+        <motion.div 
+          className="absolute -bottom-8 left-40 w-72 h-72 bg-orange-300 rounded-full mix-blend-multiply filter blur-xl opacity-10"
+          animate={{
+            ...floating,
+            transition: { ...floating.transition, delay: 2 }
+          }}
+        />
       </div>
 
       {/* Modern Navigation */}
-      <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-3">
+      <motion.nav 
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-3"
+      >
         <div className="flex items-center space-x-8">
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center">
@@ -379,7 +413,7 @@ export default function Home() {
             {isDarkMode ? <Sun className="w-4 h-4 text-yellow-400" /> : <Moon className="w-4 h-4 text-slate-600" />}
           </button>
         </div>
-      </nav>
+      </motion.nav>
 
       {/* Hero Section - Asymmetric Grid */}
       <div className="relative pt-24 pb-16 px-6">
@@ -387,47 +421,83 @@ export default function Home() {
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7">
-              <div className={`inline-flex items-center px-4 py-2 rounded-full ${isDarkMode ? 'bg-slate-800 text-orange-300' : 'bg-orange-100 text-orange-700'} mb-6`}>
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className={`inline-flex items-center px-4 py-2 rounded-full ${isDarkMode ? 'bg-slate-800 text-orange-300' : 'bg-orange-100 text-orange-700'} mb-6`}
+              >
                 <Sparkles className="w-4 h-4 mr-2" />
                 <span className="text-sm font-medium">Didukung AI Canggih</span>
-              </div>
+              </motion.div>
 
-            <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+              <motion.h1 
+                variants={heroTextVariants}
+                initial="initial"
+                animate="animate"
+                className={`text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}
+              >
                 Revolusi
                 <span className="block text-orange-600">
                   Resume
                 </span>
-            </h1>
+              </motion.h1>
 
-            <p className={`text-lg lg:text-xl leading-relaxed mb-6 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-xl`}>
-              Transformasikan karir Anda dengan analisis resume bertenaga AI yang melampaui biasa. 
-              <span className="font-semibold text-orange-600"> Temukan potensi Anda.</span>
-            </p>              <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                <button 
+              <motion.p 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className={`text-lg lg:text-xl leading-relaxed mb-6 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-xl`}
+              >
+                Transformasikan karir Anda dengan analisis resume bertenaga AI yang melampaui biasa. 
+                <span className="font-semibold text-orange-600"> Temukan potensi Anda.</span>
+              </motion.p>              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                className="flex flex-col sm:flex-row gap-4 mb-12"
+              >
+                <motion.button 
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => setShowAnalyzer(true)}
-                  className="group relative px-8 py-4 bg-orange-500 hover:bg-orange-600 rounded-2xl text-white font-semibold text-lg overflow-hidden transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl"
+                  className="group relative px-8 py-4 bg-orange-500 hover:bg-orange-600 rounded-2xl text-white font-semibold text-lg overflow-hidden transition-all duration-300 shadow-xl hover:shadow-2xl"
                 >
                   <div className="relative flex items-center">
                     <Rocket className="w-5 h-5 mr-2" />
                     Mulai Analisis
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                   </div>
-                </button>
+                </motion.button>
 
-                <button className={`px-8 py-4 rounded-2xl font-semibold text-lg border-2 ${isDarkMode ? 'border-white/20 text-white hover:bg-white/10' : 'border-gray-300 text-gray-700 hover:bg-gray-50'} transition-all duration-300`}>
+                <motion.button 
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`px-8 py-4 rounded-2xl font-semibold text-lg border-2 ${isDarkMode ? 'border-white/20 text-white hover:bg-white/10' : 'border-gray-300 text-gray-700 hover:bg-gray-50'} transition-all duration-300`}
+                >
                   <Play className="w-5 h-5 mr-2 inline" />
                   Lihat Demo
-                </button>
-              </div>
+                </motion.button>
+              </motion.div>
 
               {/* Live Stats */}
-              <div className="grid grid-cols-3 gap-6">
+              <motion.div 
+                variants={staggerContainer}
+                initial="initial"
+                animate="animate"
+                className="grid grid-cols-3 gap-6"
+              >
                 {[
                   { number: "50K+", label: "Resume Dianalisis", icon: FileText },
                   { number: "98%", label: "Tingkat Berhasil", icon: Award },
                   { number: "24/7", label: "Dukungan AI", icon: Globe }
                 ].map((stat, index) => (
-                  <div key={index} className={`p-4 rounded-2xl ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white/70 border border-white/50'} backdrop-blur-sm`}>
+                  <motion.div 
+                    key={index}
+                    variants={scaleIn}
+                    whileHover={{ scale: 1.05, y: -5 }}
+                    className={`p-4 rounded-2xl ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white/70 border border-white/50'} backdrop-blur-sm cursor-pointer`}
+                  >
                     <stat.icon className={`w-6 h-6 mb-2 ${isDarkMode ? 'text-orange-400' : 'text-orange-600'}`} />
                     <div className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-1`}>
                       {stat.number}
@@ -435,13 +505,18 @@ export default function Home() {
                     <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                       {stat.label}
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
 
             {/* Right Visual */}
-            <div className="lg:col-span-5">
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="lg:col-span-5"
+            >
               <div className="relative">
                 {/* Main Card */}
                 <div 
@@ -503,7 +578,7 @@ export default function Home() {
                   <Compass className="w-5 h-5 text-white" />
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -511,20 +586,22 @@ export default function Home() {
       {/* Features Section - Bento Grid Style */}
       <div className="py-16 px-6" id="features">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <div className={`inline-block px-3 py-1.5 rounded-full ${isDarkMode ? 'bg-slate-800 text-orange-300' : 'bg-orange-100 text-orange-700'} mb-4`}>
-              <span className="text-sm font-medium">Fitur Canggih</span>
+          <AnimateOnScroll variants={fadeInUp}>
+            <div className="text-center mb-12">
+              <div className={`inline-block px-3 py-1.5 rounded-full ${isDarkMode ? 'bg-slate-800 text-orange-300' : 'bg-orange-100 text-orange-700'} mb-4`}>
+                <span className="text-sm font-medium">Fitur Canggih</span>
+              </div>
+              <h2 className={`text-3xl md:text-4xl font-display font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                Mengapa Pilih 
+                <span className="block text-orange-600">
+                  ResumeAI?
+                </span>
+              </h2>
+              <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-2xl mx-auto`}>
+                Rasakan masa depan optimisasi resume dengan teknologi AI terdepan kami
+              </p>
             </div>
-            <h2 className={`text-3xl md:text-4xl font-display font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-              Mengapa Pilih 
-              <span className="block text-orange-600">
-                ResumeAI?
-              </span>
-            </h2>
-            <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-2xl mx-auto`}>
-              Rasakan masa depan optimisasi resume dengan teknologi AI terdepan kami
-            </p>
-          </div>
+          </AnimateOnScroll>
 
           {/* Bento Grid Layout */}
           <div className="grid md:grid-cols-6 lg:grid-cols-8 gap-4 max-w-5xl mx-auto">
@@ -647,52 +724,75 @@ export default function Home() {
       <div className="py-0 px-6 relative overflow-hidden">
         {/* Background decorations */}
         <div className="absolute inset-0 opacity-30">
-          <div className={`absolute top-20 left-10 w-32 h-32 ${isDarkMode ? 'bg-orange-500/20' : 'bg-orange-200/40'} rounded-full blur-3xl animate-float`}></div>
-          <div className={`absolute bottom-20 right-10 w-40 h-40 ${isDarkMode ? 'bg-slate-500/20' : 'bg-slate-200/40'} rounded-full blur-3xl animate-float`} style={{animationDelay: '2s'}}></div>
+          <motion.div 
+            className={`absolute top-20 left-10 w-32 h-32 ${isDarkMode ? 'bg-orange-500/20' : 'bg-orange-200/40'} rounded-full blur-3xl`}
+            animate={floating}
+          />
+          <motion.div 
+            className={`absolute bottom-20 right-10 w-40 h-40 ${isDarkMode ? 'bg-slate-500/20' : 'bg-slate-200/40'} rounded-full blur-3xl`}
+            animate={{
+              ...floating,
+              transition: { ...floating.transition, delay: 2 }
+            }}
+          />
         </div>
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative py-16">
-          <div className="text-center mb-12">
-            <div className={`inline-block px-3 py-1.5 rounded-full ${isDarkMode ? 'bg-slate-800 text-orange-300' : 'bg-orange-100 text-orange-700'} mb-4`}>
-              <span className="text-sm font-medium">Proses Sederhana</span>
+          <AnimateOnScroll variants={fadeInUp}>
+            <div className="text-center mb-12">
+              <div className={`inline-block px-3 py-1.5 rounded-full ${isDarkMode ? 'bg-slate-800 text-orange-300' : 'bg-orange-100 text-orange-700'} mb-4`}>
+                <span className="text-sm font-medium">Proses Sederhana</span>
+              </div>
+              <h2 className={`text-3xl md:text-4xl font-display font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                Cara Kerja 
+                <span className="block text-orange-600">
+                  Resume Analyzer
+                </span>
+              </h2>
+              <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-2xl mx-auto`}>
+                Tiga langkah sederhana untuk CV yang lebih baik
+              </p>
             </div>
-            <h2 className={`text-3xl md:text-4xl font-display font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-              Cara Kerja 
-              <span className="block text-orange-600">
-                Resume Analyzer
-              </span>
-            </h2>
-            <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-2xl mx-auto`}>
-              Tiga langkah sederhana untuk CV yang lebih baik
-            </p>
-          </div>
+          </AnimateOnScroll>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                step: "01",
-                title: "Upload CV",
-                description: "Upload file CV Anda dalam format PDF atau DOCX dengan mudah",
-                icon: Upload,
-                bgColor: "bg-orange-500"
-              },
-              {
-                step: "02", 
-                title: "AI Analysis",
-                description: "Sistem AI kami menganalisis konten, struktur, dan keyword dalam CV Anda",
-                icon: Brain,
-                bgColor: "bg-orange-600"
-              },
-              {
-                step: "03",
-                title: "Get Insights",
-                description: "Terima analisis lengkap dan rekomendasi untuk meningkatkan CV Anda",
-                icon: Star,
-                bgColor: "bg-slate-500"
-              }
-            ].map((item, index) => (
-              <div key={index} className="relative">
-                <div className={`text-center hover:shadow-xl transition-all duration-300 border-0 ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white/80 border border-white/30'} backdrop-blur-xl rounded-2xl h-full p-6 hover-lift`}>
+          <AnimateOnScroll variants={staggerContainer}>
+            <motion.div 
+              variants={staggerContainer}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true, amount: 0.3 }}
+              className="grid md:grid-cols-3 gap-6"
+            >
+              {[
+                {
+                  step: "01",
+                  title: "Upload CV",
+                  description: "Upload file CV Anda dalam format PDF atau DOCX dengan mudah",
+                  icon: Upload,
+                  bgColor: "bg-orange-500"
+                },
+                {
+                  step: "02", 
+                  title: "AI Analysis",
+                  description: "Sistem AI kami menganalisis konten, struktur, dan keyword dalam CV Anda",
+                  icon: Brain,
+                  bgColor: "bg-orange-600"
+                },
+                {
+                  step: "03",
+                  title: "Get Insights",
+                  description: "Terima analisis lengkap dan rekomendasi untuk meningkatkan CV Anda",
+                  icon: Star,
+                  bgColor: "bg-slate-500"
+                }
+              ].map((item, index) => (
+                <motion.div 
+                  key={index} 
+                  variants={fadeInUp}
+                  whileHover={{ y: -10, scale: 1.02 }}
+                  className="relative"
+                >
+                  <div className={`text-center hover:shadow-xl transition-all duration-300 border-0 ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white/80 border border-white/30'} backdrop-blur-xl rounded-2xl h-full p-6 hover-lift`}>
                   <div className={`text-4xl font-bold ${isDarkMode ? 'text-white/20' : 'text-gray-100'} mb-3`}>
                     {item.step}
                   </div>
@@ -712,9 +812,10 @@ export default function Home() {
                     <ArrowRight className="h-6 w-6 text-orange-300" />
                   </div>
                 )}
-              </div>
-            ))}
-          </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </AnimateOnScroll>
         </div>
       </div>
 
@@ -732,27 +833,58 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/20"></div>
           
           {/* Floating Orbs */}
-          <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full blur-2xl animate-float"></div>
-          <div className="absolute bottom-10 right-10 w-24 h-24 bg-slate-400/20 rounded-full blur-2xl animate-float" style={{animationDelay: '2s'}}></div>
-          <div className="absolute top-1/2 left-1/2 w-16 h-16 bg-yellow-400/10 rounded-full blur-2xl animate-float" style={{animationDelay: '4s'}}></div>
+          <motion.div 
+            className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full blur-2xl"
+            animate={floating}
+          />
+          <motion.div 
+            className="absolute bottom-10 right-10 w-24 h-24 bg-slate-400/20 rounded-full blur-2xl"
+            animate={{
+              ...floating,
+              transition: { ...floating.transition, delay: 2 }
+            }}
+          />
+          <motion.div 
+            className="absolute top-1/2 left-1/2 w-16 h-16 bg-yellow-400/10 rounded-full blur-2xl"
+            animate={{
+              ...floating,
+              transition: { ...floating.transition, delay: 4 }
+            }}
+          />
         </div>
 
-        <div className="relative max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-6">
-            <Rocket className="w-4 h-4 mr-2 text-white" />
-            <span className="text-white font-medium text-sm">Siap Mentransformasi Karir Anda?</span>
-          </div>
+        <AnimateOnScroll variants={fadeInUp}>
+          <div className="relative max-w-4xl mx-auto text-center">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-6"
+            >
+              <Rocket className="w-4 h-4 mr-2 text-white" />
+              <span className="text-white font-medium text-sm">Siap Mentransformasi Karir Anda?</span>
+            </motion.div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6 leading-tight">
-            Pekerjaan Impian Anda
-            <span className="block text-orange-300">
-              Menanti Anda
-            </span>
-          </h2>
+            <motion.h2 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6 leading-tight"
+            >
+              Pekerjaan Impian Anda
+              <span className="block text-orange-300">
+                Menanti Anda
+              </span>
+            </motion.h2>
 
-          <p className="text-lg lg:text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Bergabunglah dengan lebih dari 50.000 profesional yang telah mentransformasi karir mereka dengan analisis resume bertenaga AI kami
-          </p>
+            <motion.p 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-lg lg:text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed"
+            >
+              Bergabunglah dengan lebih dari 50.000 profesional yang telah mentransformasi karir mereka dengan analisis resume bertenaga AI kami
+            </motion.p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <button 
@@ -791,7 +923,8 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
+          </div>
+        </AnimateOnScroll>
       </div>
 
       {/* Modern Footer */}
@@ -873,8 +1006,9 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </div>  
       </footer>
     </div>
+    </PageTransition>
   )
 }

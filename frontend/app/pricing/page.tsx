@@ -2,6 +2,17 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
+import AnimateOnScroll from '@/components/AnimateOnScroll'
+import PageTransition from '@/components/PageTransition'
+import { 
+  fadeInUp, 
+  fadeInLeft, 
+  fadeInRight, 
+  staggerContainer, 
+  scaleIn,
+  iconBounce
+} from '@/lib/animations'
 import { 
   Brain, 
   Check, 
@@ -107,7 +118,8 @@ export default function PricingPage() {
   ]
 
   return (
-    <div className={`min-h-screen transition-all duration-500 ${isDarkMode ? 'bg-slate-900' : 'bg-orange-50'}`}>
+    <PageTransition>
+      <div className={`min-h-screen transition-all duration-500 ${isDarkMode ? 'bg-slate-900' : 'bg-orange-50'}`}>
       {/* Floating Elements Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-orange-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
@@ -152,24 +164,44 @@ export default function PricingPage() {
       <div className="relative pt-24 pb-16 px-6">
         {/* Hero Section */}
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <div className={`inline-flex items-center px-4 py-2 rounded-full ${isDarkMode ? 'bg-slate-800 text-orange-300' : 'bg-orange-100 text-orange-700'} mb-6`}>
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className={`inline-flex items-center px-4 py-2 rounded-full ${isDarkMode ? 'bg-slate-800 text-orange-300' : 'bg-orange-100 text-orange-700'} mb-6`}
+          >
             <Crown className="w-4 h-4 mr-2" />
             <span className="text-sm font-medium">Paket Harga</span>
-          </div>
+          </motion.div>
 
-          <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+          <motion.h1 
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className={`text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}
+          >
             Pilih Paket yang
             <span className="block text-orange-600">
               Tepat untuk Anda
             </span>
-          </h1>
+          </motion.h1>
 
-          <p className={`text-lg lg:text-xl leading-relaxed mb-10 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto`}>
+          <motion.p 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className={`text-lg lg:text-xl leading-relaxed mb-10 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto`}
+          >
             Mulai gratis dan upgrade sesuai kebutuhan. Semua paket dilengkapi dengan garansi 30 hari uang kembali
-          </p>
+          </motion.p>
 
           {/* Billing Toggle */}
-          <div className="flex items-center justify-center space-x-4 mb-12">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="flex items-center justify-center space-x-4 mb-12"
+          >
             <span className={`text-sm font-medium ${!isAnnual ? (isDarkMode ? 'text-white' : 'text-gray-900') : (isDarkMode ? 'text-gray-400' : 'text-gray-600')}`}>
               Bulanan
             </span>
@@ -187,21 +219,30 @@ export default function PricingPage() {
                 Hemat 17%
               </span>
             )}
-          </div>
+          </motion.div>
         </div>
 
         {/* Pricing Cards */}
-        <div className="max-w-7xl mx-auto mb-20">
-          <div className="grid lg:grid-cols-3 gap-8">
-            {plans.map((plan, index) => (
-              <div 
-                key={index} 
-                className={`relative p-8 rounded-3xl transition-all duration-500 hover-lift ${
-                  plan.popular 
-                    ? `${isDarkMode ? 'bg-slate-800/80 border-2 border-orange-500' : 'bg-orange-100 border-2 border-orange-400'} shadow-2xl scale-105` 
-                    : `${isDarkMode ? 'bg-slate-800/50 border border-slate-700' : 'bg-white border border-gray-200'} shadow-xl hover:shadow-2xl`
-                }`}
-              >
+        <AnimateOnScroll variants={staggerContainer}>
+          <div className="max-w-7xl mx-auto mb-20">
+            <motion.div 
+              variants={staggerContainer}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true, amount: 0.3 }}
+              className="grid lg:grid-cols-3 gap-8"
+            >
+              {plans.map((plan, index) => (
+                <motion.div 
+                  key={index}
+                  variants={index === 1 ? scaleIn : fadeInUp}
+                  whileHover={{ y: -10, scale: 1.02 }}
+                  className={`relative p-8 rounded-3xl transition-all duration-500 hover-lift ${
+                    plan.popular 
+                      ? `${isDarkMode ? 'bg-slate-800/80 border-2 border-orange-500' : 'bg-orange-100 border-2 border-orange-400'} shadow-2xl scale-105` 
+                      : `${isDarkMode ? 'bg-slate-800/50 border border-slate-700' : 'bg-white border border-gray-200'} shadow-xl hover:shadow-2xl`
+                  }`}
+                >
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                     <div className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center">
@@ -280,10 +321,11 @@ export default function PricingPage() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             ))}
+            </motion.div>
           </div>
-        </div>
+        </AnimateOnScroll>
 
         {/* Features Comparison */}
         <div className="max-w-6xl mx-auto mb-20">
@@ -379,5 +421,6 @@ export default function PricingPage() {
         </div>
       </div>
     </div>
+    </PageTransition>
   )
 }

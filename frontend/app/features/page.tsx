@@ -2,6 +2,17 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
+import AnimateOnScroll from '@/components/AnimateOnScroll'
+import PageTransition from '@/components/PageTransition'
+import { 
+  fadeInUp, 
+  fadeInLeft, 
+  fadeInRight, 
+  staggerContainer, 
+  scaleIn,
+  iconBounce
+} from '@/lib/animations'
 import { 
   Brain, 
   Target, 
@@ -140,7 +151,8 @@ export default function FeaturesPage() {
   ]
 
   return (
-    <div className={`min-h-screen transition-all duration-500 ${isDarkMode ? 'bg-slate-900' : 'bg-orange-50'}`}>
+    <PageTransition>
+      <div className={`min-h-screen transition-all duration-500 ${isDarkMode ? 'bg-slate-900' : 'bg-orange-50'}`}>
       {/* Floating Elements Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-orange-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
@@ -185,48 +197,92 @@ export default function FeaturesPage() {
       <div className="relative pt-24 pb-16 px-6">
         {/* Hero Section */}
         <div className="max-w-6xl mx-auto text-center mb-16">
-          <div className={`inline-flex items-center px-4 py-2 rounded-full ${isDarkMode ? 'bg-slate-800 text-orange-300' : 'bg-orange-100 text-orange-700'} mb-6`}>
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className={`inline-flex items-center px-4 py-2 rounded-full ${isDarkMode ? 'bg-slate-800 text-orange-300' : 'bg-orange-100 text-orange-700'} mb-6`}
+          >
             <Sparkles className="w-4 h-4 mr-2" />
             <span className="text-sm font-medium">Fitur Canggih</span>
-          </div>
+          </motion.div>
 
-          <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+          <motion.h1 
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className={`text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}
+          >
             Fitur yang Membuat
             <span className="block text-orange-600">
               Perbedaan
             </span>
-          </h1>
+          </motion.h1>
 
-          <p className={`text-lg lg:text-xl leading-relaxed mb-10 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto`}>
+          <motion.p 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className={`text-lg lg:text-xl leading-relaxed mb-10 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto`}
+          >
             Jelajahi teknologi AI terdepan yang dirancang khusus untuk mengoptimalkan resume Anda dan meningkatkan peluang karir
-          </p>
+          </motion.p>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+          <motion.div 
+            variants={staggerContainer}
+            initial="initial"
+            animate="animate"
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
+          >
             {[
               { number: "95%", label: "Akurasi AI", icon: Brain },
               { number: "<30s", label: "Waktu Analisis", icon: Clock },
               { number: "50+", label: "Industri", icon: Globe },
               { number: "99.9%", label: "Uptime", icon: Shield }
             ].map((stat, index) => (
-              <div key={index} className={`p-6 rounded-2xl ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white/70 border border-white/50'} backdrop-blur-sm text-center`}>
-                <stat.icon className={`w-6 h-6 mb-3 mx-auto ${isDarkMode ? 'text-orange-400' : 'text-orange-600'}`} />
-                <div className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-1`}>
+              <motion.div 
+                key={index}
+                variants={scaleIn}
+                whileHover={{ scale: 1.05, y: -5 }}
+                className={`p-6 rounded-2xl ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white/70 border border-white/50'} backdrop-blur-sm text-center cursor-pointer`}
+              >
+                <motion.div variants={iconBounce}>
+                  <stat.icon className={`w-6 h-6 mb-3 mx-auto ${isDarkMode ? 'text-orange-400' : 'text-orange-600'}`} />
+                </motion.div>
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 + 1 }}
+                  className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-1`}
+                >
                   {stat.number}
-                </div>
+                </motion.div>
                 <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                   {stat.label}
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         {/* Main Features */}
-        <div className="max-w-7xl mx-auto mb-20">
-          <div className="grid lg:grid-cols-2 gap-8">
-            {mainFeatures.map((feature, index) => (
-              <div key={index} className={`group p-8 rounded-3xl ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white/80 border border-white/30'} backdrop-blur-xl shadow-xl hover:shadow-2xl transition-all duration-500 hover-lift`}>
+        <AnimateOnScroll variants={staggerContainer}>
+          <div className="max-w-7xl mx-auto mb-20">
+            <motion.div 
+              variants={staggerContainer}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true, amount: 0.3 }}
+              className="grid lg:grid-cols-2 gap-8"
+            >
+              {mainFeatures.map((feature, index) => (
+                <motion.div 
+                  key={index}
+                  variants={index % 2 === 0 ? fadeInLeft : fadeInRight}
+                  whileHover={{ y: -10, scale: 1.02 }}
+                  className={`group p-8 rounded-3xl ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white/80 border border-white/30'} backdrop-blur-xl shadow-xl hover:shadow-2xl transition-all duration-500 hover-lift`}
+                >
                 <div className="flex items-start space-x-4 mb-6">
                   <div className={`p-3 rounded-2xl bg-${feature.gradient} shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                     <feature.icon className="w-8 h-8 text-white" />
@@ -251,25 +307,38 @@ export default function FeaturesPage() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             ))}
+            </motion.div>
           </div>
-        </div>
+        </AnimateOnScroll>
 
         {/* Additional Features Grid */}
-        <div className="max-w-6xl mx-auto mb-20">
-          <div className="text-center mb-12">
-            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-              Fitur Tambahan
-            </h2>
-            <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-2xl mx-auto`}>
-              Berbagai fitur pendukung untuk pengalaman yang lebih lengkap
-            </p>
-          </div>
+        <AnimateOnScroll variants={fadeInUp}>
+          <div className="max-w-6xl mx-auto mb-20">
+            <div className="text-center mb-12">
+              <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                Fitur Tambahan
+              </h2>
+              <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-2xl mx-auto`}>
+                Berbagai fitur pendukung untuk pengalaman yang lebih lengkap
+              </p>
+            </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {additionalFeatures.map((feature, index) => (
-              <div key={index} className={`group p-6 rounded-2xl ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white/70 border border-white/50'} backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover-lift`}>
+            <motion.div 
+              variants={staggerContainer}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true, amount: 0.2 }}
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+            >
+              {additionalFeatures.map((feature, index) => (
+                <motion.div 
+                  key={index}
+                  variants={scaleIn}
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  className={`group p-6 rounded-2xl ${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-white/70 border border-white/50'} backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover-lift cursor-pointer`}
+                >
                 <feature.icon className={`w-8 h-8 mb-4 ${isDarkMode ? 'text-orange-400' : 'text-orange-600'} group-hover:scale-110 transition-transform duration-300`} />
                 <h3 className={`text-lg font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                   {feature.title}
@@ -277,10 +346,11 @@ export default function FeaturesPage() {
                 <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                   {feature.description}
                 </p>
-              </div>
+              </motion.div>
             ))}
+            </motion.div>
           </div>
-        </div>
+        </AnimateOnScroll>
 
         {/* CTA Section */}
         <div className="max-w-4xl mx-auto text-center">
@@ -309,5 +379,6 @@ export default function FeaturesPage() {
         </div>
       </div>
     </div>
+    </PageTransition>
   )
 }
